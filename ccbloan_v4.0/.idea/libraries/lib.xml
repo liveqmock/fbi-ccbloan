@@ -1,0 +1,32 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/commons-collections-3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/concurret.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/commons-lang-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/poi-3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/jbarcode-0.2.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/mail.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/ibatis-core-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/commons-logging.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/ecs.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/ezmorph-1.0.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/joda-time-1.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/jxls-core-0.9.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/json-lib-2.4-jdk15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/csspji.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/ojdbc6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/commons-beanutils.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/commons-jexl-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/quartz.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/commons-digester-1.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/iText.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/jxls-reader-0.9.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/jxl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/log4j-1.2.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/jdomV8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
