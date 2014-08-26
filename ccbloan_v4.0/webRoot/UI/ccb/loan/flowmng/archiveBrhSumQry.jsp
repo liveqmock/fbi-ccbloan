@@ -117,18 +117,18 @@
             "                       when '10' then " +
             "                        1 " +
             "                       else " +
-            "                        null " +
-            "                     end) as succ, " +
-            "               count(case flowstat " +
-            "                       when '20' then " +
-            "                        1 " +
-            "                       else " +
-            "                        null " +
-            "                     end) as fail " +
-            " from (select a.operdate, " +
-            "                       a.flowsn, " +
-            "                       c.bankid, " +
-            "  (select deptid  from ptdept where fillstr10 = '3' and rownum = 1 " +
+            "                        null " +\n" +
+            "            \"                     end) as succ, \" +\n" +
+            "            \"               count(case flowstat \" +\n" +
+            "            \"                       when '20' then \" +\n" +
+            "            \"                        1 \" +\n" +
+            "            \"                       else \" +\n" +
+            "            \"                        null \" +\n" +
+            "            \"                     end) as fail \" +\n" +
+            "            \" from (select a.operdate, \" +\n" +
+            "            \"                       a.flowsn, \" +\n" +
+            "            \"                       c.bankid, \" +\n" +
+            "            \"  (select deptid  from ptdept where fillstr10 = '3' and rownum = 1 " +
             " start with deptid = c.bankid connect by prior parentdeptid = deptid) as cust_bankid, " +
             "                       c.custmgr_id as prommgr_id, " +
             "                       a.flowstat " +

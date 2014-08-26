@@ -42,7 +42,7 @@
             + "c.proj_name,"
             + "c.PROJ_NAME_ABBR,"
             + "c.CORPNAME,"
-            + "(select opername from ptoper where operid=a.custmgr_id) as custmgr_name, "
+            + "(select prommgr_name from ln_prommgrinfo where prommgr_id=a.custmgr_id) as custmgr_name, "
             //µÖÑºÐÅÏ¢
 
             + "b.MORTDATE,b.MORTID,"
@@ -117,7 +117,8 @@
     dbGrid.setField("µÖÑºÁ÷×ª×´Ì¬", "text", "8", "MORTSTATUS", "true", "0");
     dbGrid.setField("µÖÑº¿â¹ñºÅ", "text", "8", "boxid", "true", "0");
 
-    dbGrid.setWhereStr(" and a.bankid in(select deptid from ptdept start with deptid='" + omgr.getOperator().getDeptid() + "' connect by prior deptid=parentdeptid) order by b.mortecentercd,a.bankid,a.cust_name  ");
+    dbGrid.setWhereStr(" and a.bankid in(select deptid from ptdept start with deptid='" + omgr.getOperator().getDeptid() + "' connect by prior deptid=parentdeptid) " +
+            "¡¡order by b.mortecentercd,a.bankid,b.mortdate desc,a.cust_name  ");
     dbGrid.setpagesize(15);
     dbGrid.setdataPilotID("datapilot");
     dbGrid.setbuttons("µ¼³öexcel=excel,moveFirst,prevPage,nextPage,moveLast");

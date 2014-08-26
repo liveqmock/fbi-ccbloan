@@ -51,7 +51,8 @@ function cbRetrieve_Click(formname) {
         whereStr += " and b.clrreasonremark like '%" + trimStr(document.getElementById("clrreasonremark").value) + "%' ";
     }
 
-    whereStr += " order by b.mortid, a.bankid, b.CLRPAPERDATE desc ";
+    whereStr += " order by b.CLRPAPERDATE desc ";
+//    whereStr += " order by b.mortid, a.bankid, b.CLRPAPERDATE desc ";
     document.all["mainTab"].whereStr = whereStr;
 
     document.all["mainTab"].RecordCount = "0";

@@ -27,11 +27,9 @@ function formInit() {
         }
 
         //入库日期默认为系统时间
-        if (document.getElementById("CHGPAPERDATE").value == "") {
-            var date = new Date();
-            document.getElementById("CHGPAPERDATE").value = getDateString(date);
-            document.getElementById("CHGPAPERDATE").readOnly = "readOnly";
-        }
+        var date = new Date();
+        document.getElementById("CHGPAPERDATE").value = getDateString(date);
+        document.getElementById("CHGPAPERDATE").readOnly = "readOnly";
         // 设置借证原因默认值
         if (document.getElementById("CHGPAPERREASONCD").value == "") {
             document.getElementById("CHGPAPERREASONCD").value = "01";

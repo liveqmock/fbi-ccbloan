@@ -28,11 +28,9 @@ function formInit() {
         document.getElementById("MORTREGSTATUS").value = "3";
 
         //入库日期默认为系统时间
-        if (document.getElementById("CHGPAPERRTNDATE").value == "") {
-            var date = new Date();
-            document.getElementById("CHGPAPERRTNDATE").value = getDateString(date);
-            document.getElementById("CHGPAPERRTNDATE").readOnly = "readOnly";
-        }
+        var date = new Date();
+        document.getElementById("CHGPAPERRTNDATE").value = getDateString(date);
+        document.getElementById("CHGPAPERRTNDATE").readOnly = "readOnly";
 
         // 只读情况下，页面所有空间禁止修改
         if (operation == "select" || operation == "delete") {

@@ -25,7 +25,7 @@
     DBGrid dbGrid = new DBGrid();
     dbGrid.setGridID("loanTab");
     dbGrid.setGridType("edit");
-    String commSql = "select " +
+    String commSql = "select c.flowsn,(select deptname from ptdept where deptid=c.bankid) as deptname, " +
             "  c.cust_name, " +
             " (select roledesc from ptrole where roleid = b.roleid) as roledesc," +
             "       a.operdate," +
@@ -45,6 +45,8 @@
     dbGrid.setWhereStr(" and 1=1 order by a.operdate desc, opertime desc");
     dbGrid.setfieldSQL(commSql);
 
+    dbGrid.setField("业务流水号", "center", "5", "flowsn", "true", "0");
+    dbGrid.setField("经办机构名称", "center", "5", "deptname", "true", "0");
     dbGrid.setField("借款人", "center", "5", "cust_name", "true", "0");
     dbGrid.setField("岗位名称", "center", "5", "roledesc", "true", "0");
     dbGrid.setField("交接日期", "center", "5", "operdate", "true", "0");
@@ -55,7 +57,7 @@
 
     dbGrid.setpagesize(30);
     dbGrid.setdataPilotID("datapilot");
-    dbGrid.setbuttons("moveFirst,prevPage,nextPage,moveLast");
+    dbGrid.setbuttons("zmoveFirst,prevPage,nextPage,moveLast");
 %>
 <html>
 

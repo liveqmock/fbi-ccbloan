@@ -93,40 +93,41 @@
             <!-- 系统日志之用 -->
             <input type="hidden" id="busiNode" name="busiNode" value=""/>
             <tr height="20">
-                    <td width="10%" align="right" nowrap="nowrap" class="lbl_right_padding">
-                        借款人姓名
-                    </td>
-                    <td width="20%" align="right" nowrap="nowrap" class="data_input">
-                        <input type="text" id="cust_name" name="cust_name" style="width:90%"
-                               class="ajax-suggestion url-getPull.jsp">
-                    </td>
+                <td width="5%" nowrap="nowrap" class="lbl_right_padding">业务流水号</td>
+                <td width="15%" class="data_input"><input type="text" id="FLOWSN" name="FLOWSN" value="" style="width:96% ">
+                </td>
+                <td width="5%" align="right" nowrap="nowrap" class="lbl_right_padding">
+                    借款人姓名
+                </td>
+                <td width="15%" align="right" nowrap="nowrap" class="data_input">
+                    <input type="text" id="cust_name" name="cust_name" style="width:90%"
+                           class="ajax-suggestion url-getPull.jsp">
+                </td>
 
-                    <td width="10%" nowrap="nowrap" class="lbl_right_padding">交易中心</td>
-                    <td width="20%" nowrap="nowrap" class="data_input">
-                        <%
-                            ZtSelect zs = new ZtSelect("mortecentercd", "mortecentercd", "");
-                            zs.addAttr("style", "width: 90%");
-                            zs.addAttr("fieldType", "text");
-                            zs.addOption("", "");
-                            zs.addAttr("isNull", "false");
-                            out.print(zs);
-                        %>
-                    </td>
-                    <td width="10%" nowrap="nowrap" class="lbl_right_padding">机构</td>
-                    <td width="30%" nowrap="nowrap" class="data_input">
-                        <%
-                            zs = new ZtSelect("bankid", "", omgr.getOperator().getDeptid());
-                            zs.setSqlString("select deptid, LPad('&nbsp;', (level - 1) * 36, '&nbsp;') || deptname  from ptdept"
-                                    + " start with deptid = '" + omgr.getOperator().getDeptid() + "'"
-                                    + " connect by prior deptid = parentdeptid");
-                            zs.addAttr("style", "width: 90%");
-                            zs.addAttr("fieldType", "text");
-                            zs.addAttr("isNull", "false");
-                            out.print(zs);
-                        %>
-                    </td>
-
-                
+                <td width="5%" nowrap="nowrap" class="lbl_right_padding">交易中心</td>
+                <td width="15%" nowrap="nowrap" class="data_input">
+                    <%
+                        ZtSelect zs = new ZtSelect("mortecentercd", "mortecentercd", "");
+                        zs.addAttr("style", "width: 90%");
+                        zs.addAttr("fieldType", "text");
+                        zs.addOption("", "");
+                        zs.addAttr("isNull", "false");
+                        out.print(zs);
+                    %>
+                </td>
+                <td width="5%" nowrap="nowrap" class="lbl_right_padding">机构</td>
+                <td width="20%" nowrap="nowrap" class="data_input">
+                    <%
+                        zs = new ZtSelect("bankid", "", omgr.getOperator().getDeptid());
+                        zs.setSqlString("select deptid, LPad('&nbsp;', (level - 1) * 36, '&nbsp;') || deptname  from ptdept"
+                                + " start with deptid = '" + omgr.getOperator().getDeptid() + "'"
+                                + " connect by prior deptid = parentdeptid");
+                        zs.addAttr("style", "width: 90%");
+                        zs.addAttr("fieldType", "text");
+                        zs.addAttr("isNull", "false");
+                        out.print(zs);
+                    %>
+                </td>
 
                 <td align="center" nowrap="nowrap">
                     <input name="cbRetrieve" type="button" class="buttonGrooveDisable" id="button"

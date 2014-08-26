@@ -1,6 +1,82 @@
 var SQLStr;
 var gWhereStr = "";
 
+
+document.onkeydown = function (evt) {
+    var key = event.keyCode;
+    var srcobj = event.srcElement;
+    if (key == 13 && srcobj.type != 'button' && srcobj.type != 'submit' && srcobj.type != 'reset'
+        && srcobj.type != 'textarea' && srcobj.type != '') {
+        if (srcobj.id == "FLOWSN") {
+            var searchResult = onSearchLoanInfo();
+            if (searchResult != -1) {
+                editLoanInfo();
+            } else {
+                searchResult = onSearchArchiveInfo();
+                if(searchResult !=-1){
+                    addMortInfoByArchiveInfo();
+                }
+            }
+        }
+    }
+}
+
+function onSearchLoanInfo() {
+    var flowsn = trimStr(document.getElementById("FLOWSN").value);
+    if (flowsn == "") {
+        alert('请输入流水号.');
+        return -1;
+    }
+
+    var flowNo = document.getElementById("FLOWSN").value;
+    flowNo = flowNo.replace(/[\$\￥]/g,'');
+    document.getElementById("FLOWSN").value = flowNo;
+
+    //检查是否已做过抵押处理 TODO
+    var retxml = createselect(queryForm, "com.ccb.flowmng.SelectLoanIDFlowsnAction");
+    if (retxml == "false") {
+        alert("此资料不存在。");
+        return -1;
+    }
+
+    var xmlDoc = createDomDocument();
+    xmlDoc.loadXML(retxml);
+    var rootNode = xmlDoc.documentElement.firstChild;
+    if (rootNode != null && rootNode.getAttribute("result") == "true" && rootNode.firstChild.xml != "null") {
+        return(rootNode.firstChild.xml);
+    } else {
+        return -1;
+    }
+}
+
+function onSearchArchiveInfo() {
+    var flowsn = trimStr(document.getElementById("FLOWSN").value);
+    if (flowsn == "") {
+        alert('请输入流水号.');
+        return -1;
+    }
+
+    var flowNo = document.getElementById("FLOWSN").value;
+    flowNo = flowNo.replace(/[\$\￥]/g,'');
+    document.getElementById("FLOWSN").value = flowNo;
+
+    //获取loanid
+    var retxml = createselect(queryForm, "com.ccb.flowmng.SelectLoanIDAction");
+    if (retxml == "false") {
+        alert("此贷款资料不存在。");
+        return -1;
+    }
+    var xmlDoc = createDomDocument();
+    xmlDoc.loadXML(retxml);
+    var rootNode = xmlDoc.documentElement.firstChild;
+    if (rootNode != null && rootNode.getAttribute("result") == "true" && rootNode.firstChild.xml != "null") {
+        return(rootNode.firstChild.xml);
+    } else {
+        alert("无此流水号明细记录...");
+        return -1;
+    }
+}
+
 /**
  * 初始化form函数,
  * <p>
@@ -15,8 +91,8 @@ function body_resize() {
     initDBGrid("loanRegistedTab");
     // 初始化页面焦点
     body_init(queryForm, "cbRetrieve");
-    document.getElementById("cust_name").focus();
-    document.getElementById("cust_name").select();
+    document.getElementById("FLOWSN").focus();
+    document.getElementById("FLOWSN").select();
 }
 
 /**
@@ -44,6 +120,11 @@ function cbRetrieve_Click(formname) {
     if (checkForm(queryForm) == "false")
         return;
     var whereStr = " 1=1 ";
+
+    if (trimStr(document.getElementById("FLOWSN").value) != "") {
+        whereStr += " and a.loanid like'%"+  trimStr(document.getElementById("FLOWSN").value)+ "%'";
+    }
+
     if (trimStr(document.getElementById("cust_name").value) != "") {
         whereStr += " and ((a.cust_name like'" + trimStr(document.getElementById("cust_name").value) + "%')";
         whereStr += " or (a.cust_py  like'" + trimStr(document.getElementById("cust_name").value) + "%'))";

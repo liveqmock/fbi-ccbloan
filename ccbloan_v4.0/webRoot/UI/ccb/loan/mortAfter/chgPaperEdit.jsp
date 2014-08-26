@@ -78,7 +78,7 @@
       <tr>
         <td width="20%" nowrap="nowrap" class="lbl_right_padding">借证领用日期</td>
         <td width="30%" class="data_input"><input  name="CHGPAPERDATE"  type="text" id="CHGPAPERDATE"  style="width:90%" onClick="WdatePicker()" fieldType="date" isNull="false">
-          <span class="red_star">*</span></span></td>
+          <span class="red_star">*</span></td>
         <td width="20%" nowrap="nowrap" class="lbl_right_padding">借证原因</td>
         <td width="30%" class="data_input"><%
         ZtSelect zs = new ZtSelect("CHGPAPERREASONCD", "CHGPAPERREASONCD", "01");
