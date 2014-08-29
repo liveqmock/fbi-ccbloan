@@ -136,7 +136,15 @@
             // Í³¼Æ²éÑ¯Óï¾ä
             String sql = ""
                     + " select bankid,bankname," +
-                    "   cnt1,cnt2,cnt3,amt1,amt2,amt3,round(rate1/amt1,2) as rate1,round(rate2/amt2,2) as rate2,round(rate3/amt3,2) as rate3 , " +
+                    "   cnt1,cnt2,cnt3,amt1,amt2,amt3," +
+/*
+                    "round(rate1/amt1,2) as rate1," +
+                    "round(rate2/amt2,2) as rate2," +
+                    "round(rate3/amt3,2) as rate3 , " +
+*/
+                    " round(decode(amt1, 0, 0, rate1 / amt1), 2) as rate1," +
+                    " round(decode(amt2, 0, 0, rate2 / amt2), 2) as rate2," +
+                    " round(decode(amt3, 0, 0, rate3 / amt3), 2) as rate3, " +
                     " rate1 as totalrate1, rate2 as totalrate2, rate3 as totalrate3 from ("
                     + " select t.bankid,"
                     + " deptname as bankname," +

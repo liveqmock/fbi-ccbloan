@@ -137,7 +137,15 @@
             String sql = ""
                     + " select cust_bankid,bankname,trunc(filldbl2/100,2) as filldbl2,(case when filldbl2 >= 95 then 1.05 when (filldbl2>=90 and filldbl2<95) then 1" +
                     "   when (filldbl2>=80 and filldbl2<90) then 0.95 when filldbl2<80 then 0.85 end) as coverweight," +
-                    "   cnt1,cnt2,cnt3,amt1,amt2,amt3,round(rate1/amt1,2) as rate1,round(rate2/amt2,2) as rate2,round(rate3/amt3,2) as rate3 , " +
+                    "   cnt1,cnt2,cnt3,amt1,amt2,amt3," +
+/*
+                    "round(rate1/amt1,2) as rate1," +
+                    "round(rate2/amt2,2) as rate2," +
+                    "round(rate3/amt3,2) as rate3 , " +
+*/
+                    " round(decode(amt1, 0, 0, rate1 / amt1), 2) as rate1," +
+                    " round(decode(amt2, 0, 0, rate2 / amt2), 2) as rate2," +
+                    " round(decode(amt3, 0, 0, rate3 / amt3), 2) as rate3, " +
                     " rate1 as totalrate1, rate2 as totalrate2, rate3 as totalrate3 from ("
                     + " select t1.cust_bankid,ptdept.deptname as bankname,sum(t1.cnt1) as cnt1"
                     + " ,(case when sum(t1.cnt1)=0 then 0 else round(sum(t1.filldbl2_1)/sum(t1.cnt1),2) end) as filldbl2"
@@ -203,7 +211,15 @@
             String sql1 = ""
                     + " select cust_bankid,bankname,trunc(filldbl2/100,2) as filldbl2,(case when filldbl2 >= 95 then 1.05 when (filldbl2>=90 and filldbl2<95) then 1" +
                     "   when (filldbl2>=80 and filldbl2<90) then 0.95 when filldbl2<80 then 0.85 end) as coverweight," +
-                    "   cnt1,cnt2,cnt3,amt1,amt2,amt3,round(rate1/amt1,2) as rate1,round(rate2/amt2,2) as rate2,round(rate3/amt3,2) as rate3 , " +
+                    "   cnt1,cnt2,cnt3,amt1,amt2,amt3," +
+/*
+                    "round(rate1/amt1,2) as rate1," +
+                    "round(rate2/amt2,2) as rate2," +
+                    "round(rate3/amt3,2) as rate3 , " +
+*/
+                    " round(decode(amt1, 0, 0, rate1 / amt1), 2) as rate1," +
+                    " round(decode(amt2, 0, 0, rate2 / amt2), 2) as rate2," +
+                    " round(decode(amt3, 0, 0, rate3 / amt3), 2) as rate3, " +
                     " rate1 as totalrate1, rate2 as totalrate2, rate3 as totalrate3 from ("
                     + " select t1.cust_bankid,ptdept.deptname as bankname,sum(t1.cnt1) as cnt1"
                     + " ,(case when sum(t1.cnt1)=0 then 0 else round(sum(t1.filldbl2_1)/sum(t1.cnt1),2) end) as filldbl2"

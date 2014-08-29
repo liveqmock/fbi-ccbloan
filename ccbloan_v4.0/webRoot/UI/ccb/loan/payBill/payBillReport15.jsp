@@ -88,7 +88,15 @@
 
             // 统计查询语句
             String sql = ""
-                    + " select bankid,bankname,custmgr_name,amt1,amt2,amt3,round(rate1/amt1,2) as rate1,round(rate2/amt2,2) as rate2,round(rate3/amt3,2) as rate3 , " +
+                    + " select bankid,bankname,custmgr_name,amt1,amt2,amt3," +
+/*
+                    "round(rate1/amt1,2) as rate1," +
+                    "round(rate2/amt2,2) as rate2," +
+                    "round(rate3/amt3,2) as rate3 , " +
+*/
+                    " round(decode(amt1, 0, 0, rate1 / amt1), 2) as rate1," +
+                    " round(decode(amt2, 0, 0, rate2 / amt2), 2) as rate2," +
+                    " round(decode(amt3, 0, 0, rate3 / amt3), 2) as rate3, " +
                     " rate1 as totalrate1, rate2 as totalrate2, rate3 as totalrate3 from ("
                     + " select t.bankid,"
                     + " (select deptname from ptdept where deptid=t.bankid)as bankname,"
@@ -294,7 +302,16 @@
             */
             //-----------------------------------输出总计值-------------------------------------------------------------------------
 
-            sql = "select sum(amt1) as amt1 ,sum(amt2) as amt2, sum(amt3) as amt3, round(sum(totalrate1) / sum(amt1), 2) as rate1, round(sum(totalrate2) / sum(amt2), 2) as rate2, round(sum(totalrate3) / sum(amt3), 2) as rate3  from (" + sql + ")";
+            sql = "select sum(amt1) as amt1 ,sum(amt2) as amt2, sum(amt3) as amt3, " +
+/*
+                    "round(sum(totalrate1) / sum(amt1), 2) as rate1, " +
+                    "round(sum(totalrate2) / sum(amt2), 2) as rate2, " +
+                    "round(sum(totalrate3) / sum(amt3), 2) as rate3  " +
+*/
+                    "round(decode(sum(amt1), 0, 0, (sum(totalrate1) / sum(amt1))), 2) as rate1, " +
+                    "round(decode(sum(amt2), 0, 0, (sum(totalrate2) / sum(amt2))), 2) as rate2, " +
+                    "round(decode(sum(amt3), 0, 0, (sum(totalrate3) / sum(amt3))), 2) as rate3 " +
+                    " from (" + sql + ")";
 
             rs = conn.executeQuery(sql);
             while (rs.next()) {

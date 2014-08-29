@@ -87,7 +87,14 @@
 
             // Í³¼Æ²éÑ¯Óï¾ä
             String sql = ""
-                    + " select bankid,bankname,amt1,amt2,round(rate1/amt1,2) as rate1,round(rate2/amt2,2) as rate2 , " +
+                    + " select bankid,bankname,amt1,amt2," +
+/*
+                    "round(rate1/amt1,2) as rate1," +
+                    "round(rate2/amt2,2) as rate2, " +
+*/
+                    " round(decode(amt1, 0, 0, rate1 / amt1), 2) as rate1," +
+                    " round(decode(amt2, 0, 0, rate2 / amt2), 2) as rate2," +
+
                     " rate1 as totalrate1, rate2 as totalrate2 from ("
                     + " select t.bankid,"
                     + " (select deptname from ptdept where deptid=t.bankid)as bankname,"
