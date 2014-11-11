@@ -63,7 +63,7 @@ public class DAOGenerator {
   }
 
   /**
-   * j 根据表名生成数据文件名 去掉下划线，全部大写
+   * 根据表名生成数据文件名 去掉下划线，全部大写
    * 
    * @param tableName
    *          String
@@ -83,7 +83,10 @@ public class DAOGenerator {
 //     generateTable("LN_ARCHIVE_INFO");
 //     generateTable("LN_ARCHIVE_FLOW");
 //     generateTable("LN_MORTINFO");
-     generateTable("LN_MORTLIMIT");
+//     generateTable("LN_MORTLIMIT");
+//     generateTable("LN_SPCLBUS_FLOW");
+//     generateTable("LN_SPCLBUS_INFO");
+     generateTable("LN_SPCLBUS_CUST");
 //     generateTable("LN_ODSB_REPAY_ACCT_PMIS");
   }
 }

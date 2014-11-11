@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="66a49e46-b85c-4e4a-b09c-a64e8ec0982e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRpt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRpt.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRptAll.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRptOver.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ccbloan_v4.0.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/report/basicRptModel.xls" afterPath="$PROJECT_DIR$/webRoot/report/basicRptModel.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/report/expressRptModel.xls" afterPath="$PROJECT_DIR$/webRoot/report/expressRptModel.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/report/payBill10.xls" afterPath="$PROJECT_DIR$/webRoot/report/payBill10.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/report/payBill11.xls" afterPath="$PROJECT_DIR$/webRoot/report/payBill11.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/report/payBill17.xls" afterPath="$PROJECT_DIR$/webRoot/report/payBill17.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/report/payBill18.xls" afterPath="$PROJECT_DIR$/webRoot/report/payBill18.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/report/payBill19.xls" afterPath="$PROJECT_DIR$/webRoot/report/payBill19.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/report/payBill20.xls" afterPath="$PROJECT_DIR$/webRoot/report/payBill20.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pub/platform/advance/utils/DAOGenerator.java" afterPath="$PROJECT_DIR$/src/pub/platform/advance/utils/DAOGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ccb/mortgage/SelectAppNumAction.java" afterPath="$PROJECT_DIR$/src/com/ccb/mortgage/SelectAppNumAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/UI/ccb/loan/acctmng/acctBranchList.js" afterPath="$PROJECT_DIR$/webRoot/UI/ccb/loan/acctmng/acctBranchList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/UI/ccb/loan/acctmng/acctList.jsp" afterPath="$PROJECT_DIR$/webRoot/UI/ccb/loan/acctmng/acctList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortappt/apptApplyEdit.js" afterPath="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortappt/apptApplyEdit.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperRtnList.jsp" afterPath="$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperRtnList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillReport102.jsp" afterPath="$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillReport102.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillReport103.jsp" afterPath="$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillReport103.jsp" />
-    </list>
+    <list default="true" id="66a49e46-b85c-4e4a-b09c-a64e8ec0982e" name="Default" comment="" />
     <ignored path="ccbloan_v4.0.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,7 +58,38 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/com/ccb/specialbusiness/SpclBusInfoSelectOneAction.java" line="9" class="com.ccb.specialbusiness.SpclBusInfoSelectOneAction" package="com.ccb.specialbusiness">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillReportOrg.jsp" line="147" class="payBillReportOrg.jsp" package="D:\WorkSpace\qdccbloan\fbi-ccbloan\ccbloan_v4.0\webRoot\UI\ccb\loan\payBill">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -90,93 +99,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="appRpt.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRpt.js">
+      <file leaf-file-name="payBillReportOrg.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillReportOrg.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="1" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.0" vertical-offset="770" max-vertical-offset="1368">
+            <state line="35" column="0" selection-start="1463" selection-end="1463" vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="10470">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="appRptOver.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRptOver.jsp">
+      <file leaf-file-name="SpclBusBarCodeXMServlet.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ccb/servlet/SpclBusBarCodeXMServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="23" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="5168">
+            <state line="121" column="33" selection-start="5598" selection-end="5598" vertical-scroll-proportion="0.0" vertical-offset="3630" max-vertical-offset="4050">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="appRptAll.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRptAll.jsp">
+      <file leaf-file-name="payBillReportCust.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillReportCust.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="248" column="0" selection-start="14103" selection-end="14103" vertical-scroll-proportion="0.0" vertical-offset="4305" max-vertical-offset="5016">
-              <folding>
-                <marker date="1404278918626" expanded="true" signature="4:215" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CountModel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ccb/creditrating/CountModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0" vertical-offset="95" max-vertical-offset="1824">
+            <state line="155" column="34" selection-start="7738" selection-end="7738" vertical-scroll-proportion="0.0" vertical-offset="4326" max-vertical-offset="10590">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreditBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ccb/creditrating/CreditBean.java">
+      <file leaf-file-name="odsbReadAction.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/ccb/odsb/odsbReadAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="13" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="1767">
+            <state line="595" column="37" selection-start="26948" selection-end="26948" vertical-scroll-proportion="0.528" vertical-offset="17352" max-vertical-offset="22710">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreditBeanUtil.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ccb/creditrating/CreditBeanUtil.java">
+      <file leaf-file-name="signLoanMortRptCust.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/signLoanMortRptCust.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="13" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="399" max-vertical-offset="2660">
+            <state line="75" column="38" selection-start="3925" selection-end="3925" vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="3450">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FHExcelServlet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ccb/servlet/FHExcelServlet.java">
+      <file leaf-file-name="signLoanMortRptOrg.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/signLoanMortRptOrg.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="13" selection-start="1212" selection-end="1212" vertical-scroll-proportion="0.0" vertical-offset="665" max-vertical-offset="3724">
+            <state line="206" column="0" selection-start="12545" selection-end="12545" vertical-scroll-proportion="0.0" vertical-offset="6180" max-vertical-offset="6960">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uncomcreditEdit.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/uncomcreditEdit.jsp">
+      <file leaf-file-name="payBillListOrg.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillListOrg.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="184" column="47" selection-start="7656" selection-end="7656" vertical-scroll-proportion="0.70233464" vertical-offset="3135" max-vertical-offset="6213">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="2957" max-vertical-offset="3330">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="creditratAction.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ccb/creditrating/creditratAction.java">
+      <file leaf-file-name="payBillListOrg.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillListOrg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="13" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0" vertical-offset="532" max-vertical-offset="13186">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1055" max-vertical-offset="1470">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FieldUtil.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ccb/creditrating/FieldUtil.java">
+      <file leaf-file-name="SpclBusCustSelectOneAction.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ccb/specialbusiness/SpclBusCustSelectOneAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="3610">
+            <state line="20" column="0" selection-start="794" selection-end="794" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1350">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spclBusInfoList.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusInfoList.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="114" column="107" selection-start="6038" selection-end="6055" vertical-scroll-proportion="0.0" vertical-offset="3420" max-vertical-offset="7410">
               <folding />
             </state>
           </provider>
@@ -189,31 +196,12 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/mortBoxRegMulti.jsp" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/mortBoxRegMulti.js" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/mortBoxListMulti.js" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/mortBoxList.jsp" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/mortBoxEdit.js" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/loanMgr/loanEditReg.js" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortappt/apptApplyList.js" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankNoMortList.jsp" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/mortBoxList.js" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortmng/otherBankHeaderCanMortList.js" />
-        <option value="$PROJECT_DIR$/src/com/ccb/util/CcbLoanConst.java" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankBoxReg.jsp" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankBoxList.jsp" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/mortBoxListMulti.jsp" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperStlRtnEdit.jsp" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperSigninRtnEdit.jsp" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperSigninRtnList.js" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortappt/apptProcQry.jsp" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperStlRtnList.js" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperStlRtnList.jsp" />
-        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/branchBoxList.jsp" />
-        <option value="$PROJECT_DIR$/src/pub/platform/advance/utils/DAOGenerator.java" />
         <option value="$PROJECT_DIR$/src/com/ccb/mortgage/MortLimitAction.java" />
         <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortappt/apptApplyParamEdit.jsp" />
         <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/mortappt/apptApplyEdit.jsp" />
@@ -242,7 +230,29 @@
         <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRpt.jsp" />
         <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRpt.js" />
         <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRptOver.jsp" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/flowmng/flowNodeList.jsp" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/flowmng/archiveBrhSumQry.jsp" />
+        <option value="$PROJECT_DIR$/src/com/ccb/acctmng/AcctInfoAction.java" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/specialProcess/loanRegistedList.jsp" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/acctmng/acctList.js" />
+        <option value="$PROJECT_DIR$/src/com/ccb/specialbusiness/SpclBusFlowAction.java" />
+        <option value="$PROJECT_DIR$/src/pub/platform/advance/utils/DAOGenerator.java" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusInfoList.jsp" />
+        <option value="$PROJECT_DIR$/src/com/ccb/specialbusiness/SpclBusInfoAction.java" />
+        <option value="$PROJECT_DIR$/src/com/ccb/specialbusiness/SpclBusInfoSelectOneAction.java" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusNodeList.js" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusFlowOperQry.jsp" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/flowmng/flowInfoList.js" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusFlowCompQry.jsp" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/barCodeList.jsp" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/custManageList.js" />
+        <option value="$PROJECT_DIR$/webRoot/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusNodeList.jsp" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusInfoList.js" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusBarCodeList.jsp" />
+        <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusCustList.jsp" />
         <option value="$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRptAll.jsp" />
+        <option value="$PROJECT_DIR$/src/com/ccb/specialbusiness/SpclBusCustSelectOneAction.java" />
       </list>
     </option>
   </component>
@@ -256,10 +266,10 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1612" />
+    <option name="width" value="1616" />
     <option name="height" value="876" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -287,12 +297,18 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="ccbloan_v4.0" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -382,6 +398,66 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="loan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ccbloan_v4.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ccbloan_v4.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webRoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ccb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="specialBusiness" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ccbloan_v4.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ccbloan_v4.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webRoot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ccb" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rpt" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -425,36 +501,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webRoot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="loan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="creditrating" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccbloan_v4.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccbloan_v4.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -495,46 +541,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="servlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccbloan_v4.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccbloan_v4.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="creditrating" />
+              <option name="myItemId" value="odsb" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="File.Encoding" />
+    <property name="options.lastSelected" value="reference.idesettings.debugger.dataviews" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -545,16 +567,20 @@
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ccb.specialbusiness" />
       <recent name="com.ccb.mortgage" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WorkSpace\qdccbloan\fbi-ccbloan\ccbloan_v4.0\src\com\ccb\servlet" />
+      <recent name="D:\WorkSpace\qdccbloan\fbi-ccbloan\ccbloan_v4.0\src\com\ccb\specialbusiness" />
+      <recent name="D:\WorkSpace\qdccbloan\fbi-ccbloan\ccbloan_v4.0\webRoot\UI\ccb\loan\specialBusiness" />
       <recent name="D:\WorkSpace\qdccbloan\source\ccbloan_v4.0\webRoot\UI\ccb\loan\rpt" />
       <recent name="D:\WorkSpace\qdccbloan\source\ccbloan_v4.0\webRoot\UI\ccb\loan\express" />
-      <recent name="D:\WorkSpace\qdccbloan\source\ccbloan_v4.0\webRoot\UI\ccb\loan\mortappt" />
-      <recent name="D:\WorkSpace\qdccbloan\source\ccbloan_v4.0\webRoot\UI\ccb\loan\mortBefore" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat">
@@ -806,7 +832,7 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="false" name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration default="false" name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="ccbloan">
@@ -916,24 +942,6 @@
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
     <supportedVersion>125</supportedVersion>
   </component>
-  <component name="SvnFileUrlMappingImpl">
-    <option name="myMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="D:\WorkSpace\qdccbloan\source\ccbloan_v4.0" />
-          <option name="myCopyRoot" value="D:\WorkSpace\qdccbloan\source\ccbloan_v4.0" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-    <option name="myMoreRealMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="D:\WorkSpace\qdccbloan\source\ccbloan_v4.0" />
-          <option name="myCopyRoot" value="D:\WorkSpace\qdccbloan\source\ccbloan_v4.0" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="66a49e46-b85c-4e4a-b09c-a64e8ec0982e" name="Default" comment="" />
@@ -981,15 +989,40 @@
       <workItem from="1404200428101" duration="14558000" />
       <workItem from="1405492247963" duration="1105000" />
       <workItem from="1406078954479" duration="3280000" />
+      <workItem from="1407311997847" duration="6597000" />
+      <workItem from="1407460164496" duration="1526000" />
+      <workItem from="1407894872405" duration="2652000" />
+      <workItem from="1408001788648" duration="1880000" />
+      <workItem from="1408535699551" duration="206000" />
+      <workItem from="1408947147738" duration="3804000" />
+      <workItem from="1409033757125" duration="5722000" />
+      <workItem from="1409654968537" duration="51212000" />
+      <workItem from="1410745502072" duration="3138000" />
+      <workItem from="1410919575477" duration="41000" />
+      <workItem from="1410961760047" duration="1095000" />
+      <workItem from="1411004447227" duration="6546000" />
+      <workItem from="1411113347984" duration="127000" />
+      <workItem from="1411347676372" duration="4111000" />
+      <workItem from="1411608759511" duration="1395000" />
+      <workItem from="1411700932546" duration="2798000" />
+      <workItem from="1411716359137" duration="336000" />
+      <workItem from="1411882762397" duration="586000" />
+      <workItem from="1412734285320" duration="3099000" />
+      <workItem from="1412905298701" duration="31000" />
+      <workItem from="1412923445852" duration="9172000" />
+      <workItem from="1413182929976" duration="5897000" />
+      <workItem from="1413895575958" duration="1934000" />
+      <workItem from="1414028270982" duration="2431000" />
+      <workItem from="1415167881628" duration="9643000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181862000" />
+    <option name="totallyTimeSpent" value="307841000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1612" height="876" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -999,26 +1032,29 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22845954" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4111262" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5065274" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2545692" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6987788" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898173" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21240601" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20682989" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Struts Assistant" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12532637" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21744967" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1037,7 +1073,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1045,279 +1081,281 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankNoMortList.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/specialbusiness/SpclBusFlowAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="37" selection-start="3244" selection-end="3258" vertical-scroll-proportion="-4.75" vertical-offset="1140" max-vertical-offset="3135" />
+        <state line="15" column="30" selection-start="423" selection-end="440" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2400" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankNoMortList.js">
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/flowmng/ArchiveInfoAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="249" column="28" selection-start="7072" selection-end="7072" vertical-scroll-proportion="0.0" vertical-offset="4332" max-vertical-offset="5624" />
+        <state line="11" column="32" selection-start="392" selection-end="395" vertical-scroll-proportion="77.64286" vertical-offset="2504" max-vertical-offset="7650" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortmng/otherBankBranchCanMortList.js">
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/flowmng/ArchiveFlowAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="3933" max-vertical-offset="8873" />
+        <state line="9" column="32" selection-start="307" selection-end="310" vertical-scroll-proportion="64.78571" vertical-offset="2084" max-vertical-offset="2790" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/mortBoxList.jsp">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusFlowOperQry.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="51" selection-start="3986" selection-end="3997" vertical-scroll-proportion="-16.571428" vertical-offset="1284" max-vertical-offset="4484" />
+        <state line="55" column="0" selection-start="2677" selection-end="2677" vertical-scroll-proportion="-1.7159091" vertical-offset="1499" max-vertical-offset="5340" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortmng/otherBankBranchCanMortEdit.jsp">
+    <entry file="file://$PROJECT_DIR$/src/pub/platform/db/ConnectionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="16" selection-start="2383" selection-end="3040" vertical-scroll-proportion="-2.4642856" vertical-offset="1242" max-vertical-offset="2717" />
+        <state line="181" column="0" selection-start="3860" selection-end="3860" vertical-scroll-proportion="0.0" vertical-offset="4944" max-vertical-offset="7260" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortmng/otherBankBranchCanMortList.jsp">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/flowmng/flowInfoList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3876" />
+        <state line="5" column="8" selection-start="133" selection-end="133" vertical-scroll-proportion="44.736843" vertical-offset="2700" max-vertical-offset="6810" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortmng/otherBankBranchCanMortEdit.js">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/flowmng/flowNodeList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="70" selection-start="2615" selection-end="2619" vertical-scroll-proportion="0.0" vertical-offset="1311" max-vertical-offset="1995" />
+        <state line="18" column="8" selection-start="495" selection-end="577" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="6300" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/beforeExpressEdit.jsp">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/flowmng/flowInfoList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="10" selection-start="3602" selection-end="3633" vertical-scroll-proportion="-2.892857" vertical-offset="1553" max-vertical-offset="2641" />
+        <state line="17" column="64" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="10890" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortmng/otherBankHeaderCanMortEdit.jsp">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusNodeList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="21" selection-start="4008" selection-end="4008" vertical-scroll-proportion="-29.857143" vertical-offset="893" max-vertical-offset="2679" />
+        <state line="111" column="0" selection-start="1795" selection-end="3530" vertical-scroll-proportion="0.0" vertical-offset="2970" max-vertical-offset="6300" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankNoMortEdit.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/util/StringUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="8" selection-start="5082" selection-end="5654" vertical-scroll-proportion="0.0" vertical-offset="2451" max-vertical-offset="3534" />
+        <state line="5" column="13" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2070" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankNoMortList2.jsp">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusFlowCompQry.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="37" selection-start="3394" selection-end="3394" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="3173" />
+        <state line="73" column="23" selection-start="3243" selection-end="3243" vertical-scroll-proportion="0.0" vertical-offset="2202" max-vertical-offset="6240" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankNoMortEdit.js">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/barCodeEdit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="4" selection-start="1323" selection-end="1395" vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="1862" />
+        <state line="175" column="99" selection-start="7972" selection-end="7972" vertical-scroll-proportion="0.0" vertical-offset="5150" max-vertical-offset="5880" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankBoxList.js">
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/servlet/TiaoXMServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="376" column="33" selection-start="11214" selection-end="11225" vertical-scroll-proportion="0.0" vertical-offset="6783" max-vertical-offset="7676" />
+        <state line="122" column="31" selection-start="5934" selection-end="5934" vertical-scroll-proportion="0.0" vertical-offset="2657" max-vertical-offset="3330" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/mortBoxEdit.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/dao/LNSPCLBUSCUST.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="24" selection-start="2383" selection-end="2414" vertical-scroll-proportion="0.0" vertical-offset="912" max-vertical-offset="1881" />
+        <state line="40" column="12" selection-start="2851" selection-end="2853" vertical-scroll-proportion="0.88235295" vertical-offset="765" max-vertical-offset="10770" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/mortBoxEdit.js">
+    <entry file="file://$PROJECT_DIR$/src/pub/platform/advance/utils/DAOGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="78" selection-start="1720" selection-end="1732" vertical-scroll-proportion="0.0" vertical-offset="767" max-vertical-offset="1349" />
+        <state line="82" column="40" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.0" vertical-offset="2224" max-vertical-offset="2910" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankBoxList.jsp">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusBarCodeList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="50" selection-start="2635" selection-end="2648" vertical-scroll-proportion="0.0" vertical-offset="1349" max-vertical-offset="4465" />
+        <state line="71" column="15" selection-start="2643" selection-end="2643" vertical-scroll-proportion="0.0" vertical-offset="1877" max-vertical-offset="3120" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankNoMortList2.js">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/barCodeList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="235" column="0" selection-start="8300" selection-end="8300" vertical-scroll-proportion="0.0" vertical-offset="4074" max-vertical-offset="5586" />
+        <state line="49" column="34" selection-start="2848" selection-end="2848" vertical-scroll-proportion="2.0689654" vertical-offset="1530" max-vertical-offset="3930" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/otherBankNoMortBatchEdit.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/specialbusiness/SpclBusBarCodeAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="77" selection-start="1732" selection-end="1732" vertical-scroll-proportion="0.0" vertical-offset="787" max-vertical-offset="2508" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ccb/flowmng/SelectMortIDAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperStlRtnList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="11" selection-start="1954" selection-end="2000" vertical-scroll-proportion="0.0" vertical-offset="798" max-vertical-offset="3268" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortBefore/mortBoxReg.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="28" selection-start="6011" selection-end="6287" vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="4408" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperSigninRtnList2.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="77" selection-start="4876" selection-end="4876" vertical-scroll-proportion="0.0" vertical-offset="1843" max-vertical-offset="3534" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperSigninList2.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="77" selection-start="4973" selection-end="4973" vertical-scroll-proportion="0.0" vertical-offset="665" max-vertical-offset="3553" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperSigninRtnList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="44" selection-start="2021" selection-end="2021" vertical-scroll-proportion="0.0" vertical-offset="798" max-vertical-offset="3534" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperSigninList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="23" selection-start="4595" selection-end="4868" vertical-scroll-proportion="0.0" vertical-offset="684" max-vertical-offset="3534" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/acctmng/acctList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="58" selection-start="2724" selection-end="2724" vertical-scroll-proportion="0.0" vertical-offset="1140" max-vertical-offset="4408" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/acctmng/acctList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="257" column="18" selection-start="7388" selection-end="7388" vertical-scroll-proportion="0.0" vertical-offset="4560" max-vertical-offset="10526" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/flowmng/flowOperQry.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="2394" max-vertical-offset="3591" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/flowmng/flowInfoReport.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1669" max-vertical-offset="2185" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortappt/apptApplyList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="45" selection-start="6917" selection-end="6926" vertical-scroll-proportion="0.0" vertical-offset="4114" max-vertical-offset="4541" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pub/platform/form/control/Action.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="35" selection-start="2108" selection-end="2108" vertical-scroll-proportion="0.42052314" vertical-offset="1311" max-vertical-offset="4408" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/mortappt/apptApplyEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="9" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="1425" />
+        <state line="16" column="13" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3690" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ccb/util/CcbLoanConst.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="31" selection-start="3575" selection-end="3575" vertical-scroll-proportion="0.33333334" vertical-offset="1672" max-vertical-offset="3667" />
+        <state line="12" column="63" selection-start="396" selection-end="400" vertical-scroll-proportion="0.0" vertical-offset="164" max-vertical-offset="5790" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperRtnList2.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/util/SeqUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="61" selection-start="1702" selection-end="1715" vertical-scroll-proportion="0.0" vertical-offset="275" max-vertical-offset="3230" />
+        <state line="32" column="31" selection-start="1029" selection-end="1029" vertical-scroll-proportion="0.0" vertical-offset="635" max-vertical-offset="4320" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ccb/mortgage/SelectAppNumAction.java">
+    <entry file="file://$PROJECT_DIR$/src/pub/platform/db/SequenceManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="31" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.0" vertical-offset="784" max-vertical-offset="1387" />
+        <state line="12" column="32" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0" vertical-offset="164" max-vertical-offset="2670" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/express/paperRtnList.jsp">
+    <entry file="jar://$PROJECT_DIR$/webRoot/WEB-INF/lib/concurret.jar!/zt/concurrent/concurrent/ConcurrentHashMap.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="59" selection-start="2549" selection-end="2562" vertical-scroll-proportion="0.0" vertical-offset="1121" max-vertical-offset="3249" />
+        <state line="6" column="13" selection-start="167" selection-end="167" vertical-scroll-proportion="255.28" vertical-offset="6532" max-vertical-offset="7110" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/acctmng/acctInfoReport.jsp">
+    <entry file="file://$PROJECT_DIR$/src/pub/platform/db/Sequence.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="36" selection-start="4148" selection-end="4148" vertical-scroll-proportion="0.0" vertical-offset="1558" max-vertical-offset="2299" />
+        <state line="192" column="34" selection-start="6219" selection-end="6219" vertical-scroll-proportion="0.0" vertical-offset="5945" max-vertical-offset="7830" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/acctmng/acctBranchList.js">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/custManageList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="0" selection-start="3626" selection-end="3626" vertical-scroll-proportion="0.0" vertical-offset="2155" max-vertical-offset="10944" />
+        <state line="70" column="66" selection-start="4173" selection-end="4184" vertical-scroll-proportion="0.0" vertical-offset="1890" max-vertical-offset="4410" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ccb/mortgage/mortgageAction.java">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/custManageEdit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="392" column="50" selection-start="16099" selection-end="16099" vertical-scroll-proportion="0.0" vertical-offset="7448" max-vertical-offset="18373" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/chgQueryList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="5" selection-start="861" selection-end="1185" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1824" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRpt.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="112" selection-start="1984" selection-end="1998" vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="2603" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRpt.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="1" selection-start="1494" selection-end="1494" vertical-scroll-proportion="0.0" vertical-offset="770" max-vertical-offset="1368">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRptOver.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="23" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="5168">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRptAll.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="248" column="0" selection-start="14103" selection-end="14103" vertical-scroll-proportion="0.0" vertical-offset="4305" max-vertical-offset="5016">
-          <folding>
-            <marker date="1404278918626" expanded="true" signature="4:215" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ccb/creditrating/CountModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1216">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ccb/creditrating/CreditBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="518" max-vertical-offset="1235">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="19290" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ccb/creditrating/creditratAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="13" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0" vertical-offset="1324" max-vertical-offset="12901">
+        <state line="56" column="22" selection-start="1724" selection-end="1724" vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="20370" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/custManageList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="54" selection-start="4105" selection-end="4105" vertical-scroll-proportion="0.0" vertical-offset="3245" max-vertical-offset="6720" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/custManageEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="69" selection-start="1122" selection-end="1125" vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="3030" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/creditRating.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="67" selection-start="4156" selection-end="4168" vertical-scroll-proportion="0.0" vertical-offset="1710" max-vertical-offset="4380" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/creditRating.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="0" selection-start="5078" selection-end="5078" vertical-scroll-proportion="0.0" vertical-offset="3935" max-vertical-offset="4590" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/gradestand.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="182" column="91" selection-start="6136" selection-end="6150" vertical-scroll-proportion="0.0" vertical-offset="5130" max-vertical-offset="5790" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/servlet/ZHExcelServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="50" selection-start="4062" selection-end="4062" vertical-scroll-proportion="0.0" vertical-offset="1530" max-vertical-offset="5970" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="22" selection-start="1489" selection-end="1489" vertical-scroll-proportion="0.0" vertical-offset="990" max-vertical-offset="3450">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ccb/creditrating/FieldUtil.java">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusNodeList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="2779" max-vertical-offset="3496">
+        <state line="50" column="68" selection-start="1929" selection-end="1929" vertical-scroll-proportion="0.0" vertical-offset="1500" max-vertical-offset="4380" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/specialbusiness/SpclBusInfoSelectOneAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="39" selection-start="118" selection-end="144" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1170">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ccb/creditrating/CreditBeanUtil.java">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/signLoanMortList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="13" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="1710" max-vertical-offset="2470">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="2910" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusBarCodeList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="68" selection-start="4286" selection-end="4286" vertical-scroll-proportion="-12.103448" vertical-offset="1989" max-vertical-offset="3840" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusCustList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="21" selection-start="4107" selection-end="4107" vertical-scroll-proportion="0.0" vertical-offset="2070" max-vertical-offset="4260" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/appRptAll.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="174" column="48" selection-start="9943" selection-end="9943" vertical-scroll-proportion="0.0" vertical-offset="4947" max-vertical-offset="7920" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMCore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="258" column="19" selection-start="5111" selection-end="5111" vertical-scroll-proportion="0.33274338" vertical-offset="7552" max-vertical-offset="32400" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusInfoList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="0" selection-start="2420" selection-end="2592" vertical-scroll-proportion="0.0" vertical-offset="2452" max-vertical-offset="13710" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillListOrg.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="2957" max-vertical-offset="3330">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ccb/servlet/FHExcelServlet.java">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillListOrg.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="13" selection-start="1212" selection-end="1212" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3135">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1470">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/creditrating/uncomcreditEdit.jsp">
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillReportOrg.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="47" selection-start="7656" selection-end="7656" vertical-scroll-proportion="0.70233464" vertical-offset="3135" max-vertical-offset="6213">
+        <state line="35" column="0" selection-start="1463" selection-end="1463" vertical-scroll-proportion="0.0" vertical-offset="1050" max-vertical-offset="10470">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/specialBusiness/spclBusInfoList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="107" selection-start="6038" selection-end="6055" vertical-scroll-proportion="0.0" vertical-offset="3420" max-vertical-offset="7410">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/specialbusiness/SpclBusCustSelectOneAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="794" selection-end="794" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1140">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/servlet/SpclBusBarCodeXMServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="33" selection-start="5598" selection-end="5598" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3330">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/signLoanMortRptOrg.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="206" column="0" selection-start="12545" selection-end="12545" vertical-scroll-proportion="0.0" vertical-offset="6180" max-vertical-offset="6960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/rpt/signLoanMortRptCust.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="38" selection-start="3925" selection-end="3925" vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="3450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webRoot/UI/ccb/loan/payBill/payBillReportCust.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="34" selection-start="7738" selection-end="7738" vertical-scroll-proportion="0.0" vertical-offset="4326" max-vertical-offset="10590">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ccb/odsb/odsbReadAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="595" column="37" selection-start="26948" selection-end="26948" vertical-scroll-proportion="0.528" vertical-offset="17352" max-vertical-offset="22710">
           <folding />
         </state>
       </provider>
@@ -1333,7 +1371,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1353,6 +1390,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>sass-stdlib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1381,6 +1419,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

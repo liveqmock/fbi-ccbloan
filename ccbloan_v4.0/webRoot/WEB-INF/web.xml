@@ -39,7 +39,14 @@
 		<servlet-name>SchedulerManager</servlet-name>
 		<url-pattern>/SchedulerManager</url-pattern>
 	</servlet-mapping>
-
+    <servlet>
+        <servlet-name>SpclBusBarCodeXMServlet</servlet-name>
+        <servlet-class>com.ccb.servlet.SpclBusBarCodeXMServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpclBusBarCodeXMServlet</servlet-name>
+        <url-pattern>/servlet/SpclBusBarCodeXMServlet</url-pattern>
+    </servlet-mapping>
     <!--添加-->
     <servlet>
         <servlet-name>ZHExcelServlet</servlet-name>

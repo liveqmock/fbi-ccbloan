@@ -23,7 +23,8 @@
     String deptid = ptOperBean.getDeptid();
     dbGrid.setGridID("creditraTable");
     dbGrid.setGridType("edit");
-    String sql = "select a.creditratingno,a.idno,a.custname,a.basescore,a.baselevel,a.iniscore,a.inilevel,a.iniamt,a.inioperid,a.inidate,a.inibegdate,a.inienddate,a.inideptid,a.finscore,a.finlevel,a.finamt,a.finoperid,a.findate,a.finbegdate,a.finenddate,a.findeptid,a.timelimit,a.docid from ln_pscoredetail a where 1=1 ";
+    String sql = "select a.creditratingno,a.idno,a.custname,a.basescore,a.baselevel,a.iniscore,a.inilevel,a.iniamt,a.inioperid,a.inidate,a.inibegdate,a.inienddate,a.inideptid,a.finscore,a.finlevel," +
+            "a.finamt,a.finoperid,a.findate,a.finbegdate,a.finenddate,a.findeptid,a.timelimit,a.docid from ln_pscoredetail a where 1=1 ";
     dbGrid.setfieldSQL(sql);
     dbGrid.setField("资信评定号", "center", "9", "creditratingno", "true", "-1");
     dbGrid.setField("证件号码", "center", "8", "idno", "true", "0");
