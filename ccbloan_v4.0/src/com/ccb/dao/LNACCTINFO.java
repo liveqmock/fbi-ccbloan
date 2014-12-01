@@ -23,6 +23,7 @@ String operdate;
 String pay_operid;
 String pay_operdate;
 String deptid;
+String print_time;
 public static final String TABLENAME ="ln_acctinfo";
 private String operate_mode = "add";
 public ChangeFileds cf = new ChangeFileds();
@@ -48,6 +49,7 @@ abb.operdate=rs.getString("operdate");abb.setKeyValue("OPERDATE",""+abb.getOperd
 abb.pay_operid=rs.getString("pay_operid");abb.setKeyValue("PAY_OPERID",""+abb.getPay_operid());
 abb.pay_operdate=rs.getString("pay_operdate");abb.setKeyValue("PAY_OPERDATE",""+abb.getPay_operdate());
 abb.deptid=rs.getString("deptid");abb.setKeyValue("DEPTID",""+abb.getDeptid());
+abb.print_time=rs.getString("print_time");abb.setKeyValue("PRINT_TIME",""+abb.getPrint_time());
 list.add(abb);
 abb.operate_mode = "edit";
 }public String getAcct_id() { if ( this.acct_id == null ) return ""; return this.acct_id;}
@@ -69,6 +71,7 @@ public String getOperdate() { if ( this.operdate == null ) return ""; return thi
 public String getPay_operid() { if ( this.pay_operid == null ) return ""; return this.pay_operid;}
 public String getPay_operdate() { if ( this.pay_operdate == null ) return ""; return this.pay_operdate;}
 public String getDeptid() { if ( this.deptid == null ) return ""; return this.deptid;}
+public String getPrint_time() { if ( this.print_time == null ) return ""; return this.print_time;}
 public void setAcct_id(String acct_id) { sqlMaker.setField("acct_id",acct_id,Field.TEXT); if (this.operate_mode.equals("edit")) { if (!this.getAcct_id().equals(acct_id)) cf.add("acct_id",this.acct_id,acct_id); } this.acct_id=acct_id;}
 public void setAcct_name(String acct_name) { sqlMaker.setField("acct_name",acct_name,Field.TEXT); if (this.operate_mode.equals("edit")) { if (!this.getAcct_name().equals(acct_name)) cf.add("acct_name",this.acct_name,acct_name); } this.acct_name=acct_name;}
 public void setLoanid(String loanid) { sqlMaker.setField("loanid",loanid,Field.TEXT); if (this.operate_mode.equals("edit")) { if (!this.getLoanid().equals(loanid)) cf.add("loanid",this.loanid,loanid); } this.loanid=loanid;}
@@ -88,6 +91,7 @@ public void setOperdate(String operdate) { sqlMaker.setField("operdate",operdate
 public void setPay_operid(String pay_operid) { sqlMaker.setField("pay_operid",pay_operid,Field.TEXT); if (this.operate_mode.equals("edit")) { if (!this.getPay_operid().equals(pay_operid)) cf.add("pay_operid",this.pay_operid,pay_operid); } this.pay_operid=pay_operid;}
 public void setPay_operdate(String pay_operdate) { sqlMaker.setField("pay_operdate",pay_operdate,Field.TEXT); if (this.operate_mode.equals("edit")) { if (!this.getPay_operdate().equals(pay_operdate)) cf.add("pay_operdate",this.pay_operdate,pay_operdate); } this.pay_operdate=pay_operdate;}
 public void setDeptid(String deptid) { sqlMaker.setField("deptid",deptid,Field.TEXT); if (this.operate_mode.equals("edit")) { if (!this.getDeptid().equals(deptid)) cf.add("deptid",this.deptid,deptid); } this.deptid=deptid;}
+public void setPrint_time(String print_time) { sqlMaker.setField("print_time",print_time,Field.TEXT); if (this.operate_mode.equals("edit")) { if (!this.getPrint_time().equals(print_time)) cf.add("print_time",this.print_time,print_time); } this.print_time=print_time;}
 public void init(int i,ActionRequest actionRequest) throws Exception { if ( actionRequest.getFieldValue(i,"acct_id") !=null ) {this.setAcct_id(actionRequest.getFieldValue(i,"acct_id"));}
 if ( actionRequest.getFieldValue(i,"acct_name") !=null ) {this.setAcct_name(actionRequest.getFieldValue(i,"acct_name"));}
 if ( actionRequest.getFieldValue(i,"loanid") !=null ) {this.setLoanid(actionRequest.getFieldValue(i,"loanid"));}
@@ -107,6 +111,7 @@ if ( actionRequest.getFieldValue(i,"operdate") !=null ) {this.setOperdate(action
 if ( actionRequest.getFieldValue(i,"pay_operid") !=null ) {this.setPay_operid(actionRequest.getFieldValue(i,"pay_operid"));}
 if ( actionRequest.getFieldValue(i,"pay_operdate") !=null ) {this.setPay_operdate(actionRequest.getFieldValue(i,"pay_operdate"));}
 if ( actionRequest.getFieldValue(i,"deptid") !=null ) {this.setDeptid(actionRequest.getFieldValue(i,"deptid"));}
+if ( actionRequest.getFieldValue(i,"print_time") !=null ) {this.setPrint_time(actionRequest.getFieldValue(i,"print_time"));}
 }public void init(ActionRequest actionRequest) throws Exception { this.init(0,actionRequest);}public void initAll(int i,ActionRequest actionRequest) throws Exception { this.init(i,actionRequest);}public void initAll(ActionRequest actionRequest) throws Exception { this.initAll(0,actionRequest);}public Object clone() throws CloneNotSupportedException { LNACCTINFO obj = (LNACCTINFO)super.clone();obj.setAcct_id(obj.acct_id);
 obj.setAcct_name(obj.acct_name);
 obj.setLoanid(obj.loanid);
@@ -126,4 +131,5 @@ obj.setOperdate(obj.operdate);
 obj.setPay_operid(obj.pay_operid);
 obj.setPay_operdate(obj.pay_operdate);
 obj.setDeptid(obj.deptid);
+obj.setPrint_time(obj.print_time);
 return obj;}}

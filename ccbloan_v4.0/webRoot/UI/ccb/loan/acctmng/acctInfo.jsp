@@ -106,7 +106,7 @@
     String whereStr = " and a.print_flag = '0' ";
     whereStr = whereStr +  " order by a.loanid ";
     dbGrid.setWhereStr(whereStr);
-    dbGrid.setpagesize(15);
+    dbGrid.setpagesize(20);
     dbGrid.setdataPilotID("datapilot");
     dbGrid.setCheck(true);
     if (menuAction.equals(CcbLoanConst.MENU_SELECT)) {

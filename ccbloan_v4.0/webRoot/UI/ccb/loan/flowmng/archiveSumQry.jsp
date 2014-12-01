@@ -29,59 +29,59 @@
     DBGrid dbGrid = new DBGrid();
     dbGrid.setGridID("tab1");
     dbGrid.setGridType("edit");
-    String infoSql = "select (select deptname from ptdept where deptid = cust_bankid) as custbank_name,\n" +
-            "       tbl.*\n" +
-            "  from (select (select deptid\n" +
-            "                  from ptdept\n" +
-            "                 where fillstr10 = '3'\n" +
-            "                   and rownum = 1\n" +
-            "                 start with deptid = t.bankid\n" +
-            "                connect by prior parentdeptid = deptid) as cust_bankid,\n" +
-            "               (select deptname from ptdept where deptid = bankid) as bank_name,\n" +
-            "               bankid,\n" +
-            "               prommgr_id,\n" +
-            "               (select prommgr_name\n" +
-            "                  from ln_prommgrinfo\n" +
-            "                 where prommgr_id = t.prommgr_id) as prommgr_name,\n" +
-            "               total,\n" +
-            "               succ,\n" +
-            "               fail,\n" +
-            "               RTrim(To_Char(succ / total * 100, 'FM990.99'), '.') || '%' as rate\n" +
-            "          from (select bankid,\n" +
-            "                       prommgr_id,\n" +
-            "                       count(*) as total,\n" +
-            "                       count(case flowstat\n" +
-            "                               when '10' then\n" +
-            "                                1\n" +
-            "                               else\n" +
-            "                                null\n" +
-            "                             end) as succ,\n" +
-            "                       count(case flowstat\n" +
-            "                               when '20' then\n" +
-            "                                1\n" +
-            "                               else\n" +
-            "                                null\n" +
-            "                             end) as fail\n" +
-            "                  from (select a.operdate,\n" +
-            "                               a.flowsn,\n" +
-            "                               c.bankid,\n" +
-            "                               c.custmgr_id as prommgr_id,\n" +
-            "                               a.flowstat\n" +
-            "                          from ln_archive_flow a,\n" +
-            "                               ptoperrole      b,\n" +
-            "                               ln_archive_info c\n" +
-            "                         where a.operid = b.operid(+)\n" +
-            "                           and b.roleid = 'WF0001'\n" +
-            "                           and exists\n" +
-            "                         (select 1\n" +
-            "                                  from PTENUDETAIL t\n" +
-            "                                 where enutype = 'ARCHIVE_SUM_RPT_OPER'\n" +
-            "                                   and t.enuitemvalue = a.operid)\n" +
-            "                           and a.flowsn = c.flowsn\n" +
-            "                           and a.operdate >= '{startDate}'\n" +
-            "                           and a.operdate <= '{endDate}')\n" +
-            "                 group by bankid, prommgr_id) t\n" +
-            "       ) tbl order by cust_bankid, bankid, rate desc\n";
+    String infoSql = "select (select deptname from ptdept where deptid = cust_bankid) as custbank_name," +
+            "       tbl.*" +
+            "  from (select (select deptid" +
+            "                  from ptdept" +
+            "                 where fillstr10 = '3'" +
+            "                   and rownum = 1" +
+            "                 start with deptid = t.bankid" +
+            "                connect by prior parentdeptid = deptid) as cust_bankid," +
+            "               (select deptname from ptdept where deptid = bankid) as bank_name," +
+            "               bankid," +
+            "               prommgr_id," +
+            "               (select prommgr_name" +
+            "                  from ln_prommgrinfo" +
+            "                 where prommgr_id = t.prommgr_id) as prommgr_name," +
+            "               total," +
+            "               succ," +
+            "               fail," +
+            "               RTrim(To_Char(succ / total * 100, 'FM990.99'), '.') || '%' as rate" +
+            "          from (select bankid," +
+            "                       prommgr_id," +
+            "                       count(*) as total," +
+            "                       count(case flowstat" +
+            "                               when '10' then" +
+            "                                1" +
+            "                               else" +
+            "                                null" +
+            "                             end) as succ," +
+            "                       count(case flowstat" +
+            "                               when '20' then" +
+            "                                1" +
+            "                               else" +
+            "                                null" +
+            "                             end) as fail" +
+            "                  from (select a.operdate," +
+            "                               a.flowsn," +
+            "                               c.bankid," +
+            "                               c.custmgr_id as prommgr_id," +
+            "                               a.flowstat" +
+            "                          from ln_archive_flow a," +
+            "                               ptoperrole      b," +
+            "                               ln_archive_info c" +
+            "                         where a.operid = b.operid(+)" +
+            "                           and b.roleid = 'WF0001'" +
+            "                           and exists" +
+            "                         (select 1" +
+            "                                  from PTENUDETAIL t" +
+            "                                 where enutype = 'ARCHIVE_SUM_RPT_OPER'" +
+            "                                   and t.enuitemvalue = a.operid)" +
+            "                           and a.flowsn = c.flowsn" +
+            "                           and a.operdate >= '{startDate}'" +
+            "                           and a.operdate <= '{endDate}')" +
+            "                 group by bankid, prommgr_id) t" +
+            "       ) tbl order by cust_bankid, bankid, rate desc";
 
     String tab1Sql= infoSql;
     infoSql = infoSql.replace("{startDate}", startDate);
@@ -110,41 +110,41 @@
     DBGrid dbGridDetail = new DBGrid();
     dbGridDetail.setGridID("tab2");
     dbGridDetail.setGridType("edit");
-    String detailSql = "select cust_bankid,\n" +
-            "       (select deptname from ptdept where deptid = cust_bankid) as bank_name,\n" +
-            "       total,\n" +
-            "       succ,\n" +
-            "       fail,\n" +
-            "       RTrim(To_Char(succ / total * 100,'FM990.99'),'.') || '%' as rate\n" +
-            "  from (select cust_bankid,\n" +
-            "               count(*) as total,\n" +
-            "               count(case flowstat\n" +
-            "                       when '10' then\n" +
-            "                        1\n" +
-            "                       else\n" +
-            "                        null\n" +
-            "                     end) as succ,\n" +
-            "               count(case flowstat\n" +
-            "                       when '20' then\n" +
-            "                        1\n" +
-            "                       else\n" +
-            "                        null\n" +
-            "                     end) as fail\n" +
-            "          from (select a.operdate,\n" +
-            "                       a.flowsn,\n" +
-            "                       c.bankid,\n" +
-            "                       (select deptid  from ptdept where fillstr10 = '3' and rownum = 1 start with deptid = c.bankid connect by prior parentdeptid = deptid) as cust_bankid,\n" +
-            "                       c.custmgr_id as prommgr_id,\n" +
-            "                       a.flowstat\n" +
-            "                  from ln_archive_flow a, ptoperrole b, ln_archive_info c\n" +
-            "                 where a.operid = b.operid(+)\n" +
-            "                   and b.roleid = 'WF0001'\n" +
-            "                   and exists (select 1 from PTENUDETAIL t where enutype='ARCHIVE_SUM_RPT_OPER' and t.enuitemvalue=a.operid)\n" +
-            "                   and a.flowsn = c.flowsn\n" +
-            "                   and a.operdate >= '{startDate}'\n" +
-            "                   and a.operdate <= '{endDate}')\n" +
-            "         group by cust_bankid) t\n" +
-            " order by  rate desc\n";
+    String detailSql = "select cust_bankid," +
+            "       (select deptname from ptdept where deptid = cust_bankid) as bank_name," +
+            "       total," +
+            "       succ," +
+            "       fail," +
+            "       RTrim(To_Char(succ / total * 100,'FM990.99'),'.') || '%' as rate" +
+            "  from (select cust_bankid," +
+            "               count(*) as total," +
+            "               count(case flowstat" +
+            "                       when '10' then" +
+            "                        1" +
+            "                       else" +
+            "                        null" +
+            "                     end) as succ," +
+            "               count(case flowstat" +
+            "                       when '20' then" +
+            "                        1" +
+            "                       else" +
+            "                        null" +
+            "                     end) as fail" +
+            "          from (select a.operdate," +
+            "                       a.flowsn," +
+            "                       c.bankid," +
+            "                       (select deptid  from ptdept where fillstr10 = '3' and rownum = 1 start with deptid = c.bankid connect by prior parentdeptid = deptid) as cust_bankid," +
+            "                       c.custmgr_id as prommgr_id," +
+            "                       a.flowstat" +
+            "                  from ln_archive_flow a, ptoperrole b, ln_archive_info c" +
+            "                 where a.operid = b.operid(+)" +
+            "                   and b.roleid = 'WF0001'" +
+            "                   and exists (select 1 from PTENUDETAIL t where enutype='ARCHIVE_SUM_RPT_OPER' and t.enuitemvalue=a.operid)" +
+            "                   and a.flowsn = c.flowsn" +
+            "                   and a.operdate >= '{startDate}'" +
+            "                   and a.operdate <= '{endDate}')" +
+            "         group by cust_bankid) t" +
+            " order by  rate desc";
     System.out.println(detailSql);
 
     String tab2Sql= detailSql;

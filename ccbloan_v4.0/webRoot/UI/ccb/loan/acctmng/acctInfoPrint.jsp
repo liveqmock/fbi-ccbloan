@@ -92,8 +92,10 @@
             reportList = reportManager.exec(sql);
             beans.put("records",reportList);
 
+            SimpleDateFormat dfPrint = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String printTime = dfPrint.format(date);
             updateCnt = 0;
-            updateCnt = conn.executeUpdate("update ln_acctinfo a set a.print_flag='1' where a.acct_id in("+acctid+")");
+            updateCnt = conn.executeUpdate("update ln_acctinfo a set a.print_flag='1',print_time = printTime  where a.acct_id in("+acctid+")");
             if(updateCnt<0){
                 out.write("生成报表时出现错误。");
             }

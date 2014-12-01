@@ -74,7 +74,7 @@
                     "             from ln_acctinfo a  " +
                     "             inner join ln_loanapply b on a.loanid = b.loanid   " +
                     "             where 1 =1 "+  strWhere +
-                    "             )aa ";
+                    "             order by a.print_time )aa ";
 
             List reportList = new ArrayList();
             reportList = reportManager.exec(sql);

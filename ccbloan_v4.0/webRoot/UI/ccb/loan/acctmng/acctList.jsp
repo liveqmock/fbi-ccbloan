@@ -66,7 +66,7 @@
             " a.loanid, b.nbxh " +
             " from ln_mortinfo a " +
             " left outer join ln_loanapply b on a.loanid = b.loanid " +
-            " where (a.mortstatus in ('10', '40','41','20A') or a.PAPERRTNDATE>='2013-10-30') " +
+            " where (a.mortstatus in ('10', '40','20A') or a.PAPERRTNDATE>='2013-10-31'  or (a.mortstatus in ('41') and a.PAPERRTNDATE>='2013-10-31' ) ) " +
             " and nvl(a.nomortreasoncd,' ') not in('08','17') " +
             " and b.bankid in (" +
             " select deptid from ptdept " +
