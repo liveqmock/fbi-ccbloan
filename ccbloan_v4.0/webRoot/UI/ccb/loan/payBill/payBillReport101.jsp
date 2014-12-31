@@ -122,7 +122,12 @@
                     "               end) as amt1," +
                     "           sum(case" +
                     "                 when (ln_typ in ('011')) then" +
-                    "                  ratecalevalue * rt_orig_loan_amt" +
+                    "                       case\n" +
+                    "                         when (ratecode like 'C%') then\n" +
+                    "                          (interate/5.6) * rt_orig_loan_amt\n" +
+                    "                         else\n" +
+                    "                          ratecalevalue * rt_orig_loan_amt\n" +
+                    "                       end\n" +
                     "                 else" +
                     "                  null" +
                     "               end) as rate1," +
@@ -141,7 +146,12 @@
                     "               end) as amt2," +
                     "           sum(case" +
                     "                 when (ln_typ in ('013')) then" +
-                    "                  ratecalevalue * rt_orig_loan_amt" +
+                    "                       case\n" +
+                    "                         when (ratecode like 'C%') then\n" +
+                    "                          (interate/5.6) * rt_orig_loan_amt\n" +
+                    "                         else\n" +
+                    "                          ratecalevalue * rt_orig_loan_amt\n" +
+                    "                       end\n" +
                     "                 else" +
                     "                  null" +
                     "               end) as rate2," +
@@ -154,7 +164,12 @@
                     "               end) as amt12," +
                     "           sum(case" +
                     "                 when (ln_typ in ('011','013')) then" +
-                    "                  ratecalevalue * rt_orig_loan_amt" +
+                    "                       case\n" +
+                    "                         when (ratecode like 'C%') then\n" +
+                    "                          (interate/5.6) * rt_orig_loan_amt\n" +
+                    "                         else\n" +
+                    "                          ratecalevalue * rt_orig_loan_amt\n" +
+                    "                       end\n" +
                     "                 else" +
                     "                  null" +
                     "               end) as rate12," +
@@ -173,7 +188,12 @@
                     "               end) as amt3," +
                     "           sum(case" +
                     "                 when (ln_typ in ('033', '433') and ln_prod_cod in ('0183','4183')) then" +
-                    "                  ratecalevalue * rt_orig_loan_amt" +
+                    "                       case\n" +
+                    "                         when (ratecode like 'C%') then\n" +
+                    "                          (interate/5.6) * rt_orig_loan_amt\n" +
+                    "                         else\n" +
+                    "                          ratecalevalue * rt_orig_loan_amt\n" +
+                    "                       end\n" +
                     "                 else" +
                     "                  null" +
                     "               end) as rate3," +
@@ -192,7 +212,12 @@
                     "               end) as amt4," +
                     "           sum(case" +
                     "                 when (ln_typ not in ('011', '013', '033', '433', '117', '119') or (ln_typ in ('033', '433') and ln_prod_cod not in ('0183','4183'))) then" +
-                    "                  ratecalevalue * rt_orig_loan_amt" +
+                    "                       case\n" +
+                    "                         when (ratecode like 'C%') then\n" +
+                    "                          (interate/5.6) * rt_orig_loan_amt\n" +
+                    "                         else\n" +
+                    "                          ratecalevalue * rt_orig_loan_amt\n" +
+                    "                       end\n" +
                     "                 else" +
                     "                  null" +
                     "               end) as rate4," +
@@ -205,7 +230,12 @@
                     "               end) as amt34," +
                     "           sum(case" +
                     "                 when (ln_typ not in ('011', '013',  '117', '119')) then" +
-                    "                  ratecalevalue * rt_orig_loan_amt" +
+                    "                       case\n" +
+                    "                         when (ratecode like 'C%') then\n" +
+                    "                          (interate/5.6) * rt_orig_loan_amt\n" +
+                    "                         else\n" +
+                    "                          ratecalevalue * rt_orig_loan_amt\n" +
+                    "                       end\n" +
                     "                 else" +
                     "                  null" +
                     "               end) as rate34" +
