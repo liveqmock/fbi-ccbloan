@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="packager">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/webRoot/js/ui/editor/packager.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
