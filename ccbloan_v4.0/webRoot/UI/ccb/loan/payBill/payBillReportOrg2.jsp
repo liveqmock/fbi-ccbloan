@@ -1,5 +1,5 @@
 /*********************************************************************
-* 功能描述: 买单工资统计项目表 机构利率浮动比例统计表
+* 功能描述: 买单工资统计项目表 机构利率浮动比例统计表--加权利率
 * 贷款分类分为5类
 个人住房贷款(仅含个人住房贷款、个人再交易住房贷款)
 个人消费经营类贷款（含个人消费额度、个人助业、个人汽车、个人质押贷款等）
@@ -8,6 +8,7 @@
 个人类贷款合计
 * 作 者: zr
 * 开发日期: 2013/01/08
+* 修改日期：2015/01/04 zhanrui
 ***********************************************************************/
 <%@page contentType="text/html; charset=GBK" %>
 <%@page import="com.ccb.util.CcbLoanConst" %>
@@ -38,7 +39,7 @@
         do {
             //得到报表模板
             String rptModelPath = PropertyManager.getProperty("REPORT_ROOTPATH");
-            String rptName = rptModelPath + CcbLoanConst.RPT_PAY_BILL_12 + ".xls";
+            String rptName = rptModelPath +  "payBillOrg2.xls";
             File file = new File(rptName);
             // 判断模板是否存在,不存在则退出
             if (!file.exists()) {
@@ -48,7 +49,7 @@
             // 输出报表
             response.reset();
             response.setContentType("application/vnd.ms-excel");
-            response.addHeader("Content-Disposition", "attachment; filename=" + CcbLoanConst.RPT_PAY_BILL_12 + ".xls");
+            response.addHeader("Content-Disposition", "attachment; filename=" + "payBillOrg.xls");
             // ----------------------------根据模板创建输出流----------------------------------------------------------------
             WorkbookSettings setting = new WorkbookSettings();
             Locale locale = new Locale("zh", "CN");
@@ -167,7 +168,7 @@
                     outputOneXlsRow(title, ws, rs, deptCount, sheetRowCount, rowHeight, beginRow, k, beginCol, wcf_center, wcf_right, wcf_right_rate, bankName);
                     k++;
                 }
-                ws.mergeCells(beginCol, deptCount + beginRow + sheetRowCount, beginCol, deptCount + beginRow + itemSize - 1 + sheetRowCount);
+                ws.mergeCells(beginCol, deptCount + beginRow + sheetRowCount, beginCol, deptCount + beginRow + itemSize - 1  + sheetRowCount);
                 deptCount++;
             }
 
@@ -185,16 +186,16 @@
                 while (rs.next()) {
                     String deptIdTmp = rs.getString(0);
                     deptNameTmp = rs.getString(1);
-                    deptCount = outputOneDeptTotal(deptIdTmp, ws, wcf_bold_center, wcf_bold_right, wcf_bold_right_rate, rowHeight, beginRow, beginCol, whereStr, itemtitleList, itemcriteriaList, conn, itemSize, deptCount, deptNameTmp);
+                    deptCount = outputOneDeptTotal(deptIdTmp, ws, wcf_bold_center, wcf_bold_right, wcf_bold_right_rate,rowHeight, beginRow, beginCol, whereStr, itemtitleList, itemcriteriaList, conn, itemSize, deptCount, deptNameTmp);
                 }
             }
             //在当前机构为分行直属机构时，只输出当前机构的合计
             if (StringUtils.isNotEmpty(deptLevel) && "3".equals(deptLevel)) {
-                deptCount = outputOneDeptTotal(deptId, ws, wcf_bold_center, wcf_bold_right, wcf_bold_right_rate, rowHeight, beginRow, beginCol, whereStr, itemtitleList, itemcriteriaList, conn, itemSize, deptCount, deptNameTmp);
+                deptCount = outputOneDeptTotal(deptId, ws, wcf_bold_center, wcf_bold_right, wcf_bold_right_rate,rowHeight, beginRow, beginCol, whereStr, itemtitleList, itemcriteriaList, conn, itemSize, deptCount, deptNameTmp);
             }
 
             //----固定输出市分行合计-------------------------------------------------------------------------
-            deptCount = outputOneDeptTotal("371980000", ws, wcf_bold_center, wcf_bold_right, wcf_bold_right_rate, rowHeight, beginRow, beginCol, whereStr, itemtitleList, itemcriteriaList, conn, itemSize, deptCount, "市分行");
+            deptCount = outputOneDeptTotal("371980000", ws, wcf_bold_center, wcf_bold_right, wcf_bold_right_rate,rowHeight, beginRow, beginCol, whereStr, itemtitleList, itemcriteriaList, conn, itemSize, deptCount, "市分行");
 
 
             wwb.write();
@@ -225,7 +226,7 @@
         StringBuilder totalSql = new StringBuilder("select sysdate");
         assembleSqlHeader(itemcriteriaList, totalSql);
 
-        StringBuffer detailSql = new StringBuffer();
+        StringBuffer  detailSql = new StringBuffer();
         assembleSql(deptId, whereStr, itemcriteriaList, detailSql);
         totalSql.append(" from (" + detailSql.toString() + ")");
         //合计时用到的机构清单
@@ -245,7 +246,7 @@
                 outputOneXlsRow(title, ws, rs, row, cnt, rowHeight, beginRow, k, beginCol, wcf_bold_center, wcf_bold_right, wcf_bold_right_rate, totalDeptName);
                 k++;
             }
-            ws.mergeCells(beginCol, row + beginRow + cnt, beginCol, row + beginRow + itemSize - 1 + cnt);
+            ws.mergeCells(beginCol, row + beginRow + cnt, beginCol, row + beginRow + itemSize - 1  + cnt);
             row++;
         }
         return row;
@@ -260,6 +261,10 @@
                     step + "), 0, 0, " +
                     " round(sum(totalrate" + step + ")/sum(amt" + step + "),6))" +
                     " as rate" + step + " ");
+            totalSql.append(", decode(sum(amt" +
+                    step + "), 0, 0, " +
+                    " round(sum(totalwrate" + step + ")/sum(amt" + step + "),6))" +
+                    " as wrate" + step + " ");
         }
     }
 
@@ -272,9 +277,10 @@
             step++;
             itemSize++;
             selectSQl.append(",amt" + step);
-            //selectSQl.append(",round(rate" + step + "/amt" + step + ",6) as rate" + step + " ");
-            selectSQl.append(",(case when amt" + step + "=0 then 0 else round(rate" + step + "/amt" + step + ",6) end)as rate" + step + " ");
+            selectSQl.append(",(case when amt" +  step + "=0 then 0 else round(rate" + step + "/amt" + step + ",6) end)as rate" + step + " ");
+            selectSQl.append(",(case when amt" +  step + "=0 then 0 else round(wrate" + step + "/amt" + step + ",6) end)as wrate" + step + " ");
             selectSQl.append(",rate" + step + " as totalrate" + step);
+            selectSQl.append(",wrate" + step + " as totalwrate" + step);
         }
         selectSQl.append(" from (select t.bankid, (select deptname from ptdept where deptid = t.bankid) as bankname ");
         step = 0;
@@ -287,18 +293,17 @@
                             + "       else"
                             + "        null"
                             + "     end) as amt" + step
+
                             + "  ,sum(case"
                             + "       when (" + criterion + ") then"
+                            + "        5.6*rt_orig_loan_amt"
+                            + "       else"
+                            + "        null"
+                            + "     end) as wrate" + step     //wrate=weighted rate  加权利率   20150104 zr
 
-                            + "                       case"
-                            + "                         when (ratecode like 'C%') then"
-                            + "                          (interate/5.6) * rt_orig_loan_amt"
-                            + "                         else"
-                            + "                          ratecalevalue * rt_orig_loan_amt"
-                            + "                       end"
-
-                            //+ "        RATECALEVALUE*rt_orig_loan_amt"
-
+                            + "  ,sum(case"
+                            + "       when (" + criterion + ") then"
+                            + "        RATECALEVALUE*rt_orig_loan_amt"
                             + "       else"
                             + "        null"
                             + "     end) as rate" + step
@@ -315,7 +320,7 @@
         //统计条件定义表处理
         String configSql = "select t.enuitemlabel as itemtitle, t.enuitemdesc as itemcriteria" +
                 "  from PTENUDETAIL t" +
-                " where t.enutype = 'PAYBILL_INTRRATE'" +
+                " where t.enutype = 'PAYBILL_INTRRATE' and t.enuitemvalue='1'" +
                 " order by t.enuitemvalue";
         RecordSet configRs = conn.executeQuery(configSql);
 
@@ -343,11 +348,14 @@
         // 贷款种类
         lbl = new Label(beginCol + 1, i + beginRow + rowOffset + cnt, RPTLABEL01, wcf_center);
         ws.addCell(lbl);
+        // 加权贷款浮动比例
+        Number nLbl = new Number(beginCol + 2, i + beginRow + rowOffset + cnt, rs.getDouble("wrate" + (rowOffset + 1)), wcf_right_rate);
+        ws.addCell(nLbl);
         // 贷款浮动比例
-        Number nLbl = new Number(beginCol + 2, i + beginRow + rowOffset + cnt, rs.getDouble("rate" + (rowOffset + 1)), wcf_right_rate);
+        nLbl = new Number(beginCol + 3, i + beginRow + rowOffset + cnt, rs.getDouble("rate" + (rowOffset + 1)), wcf_right_rate);
         ws.addCell(nLbl);
         // 贷款发放额
-        nLbl = new Number(beginCol + 3, i + beginRow + rowOffset + cnt, rs.getDouble("amt" + (rowOffset + 1)), wcf_right);
+        nLbl = new Number(beginCol + 4, i + beginRow + rowOffset + cnt, rs.getDouble("amt" + (rowOffset + 1)), wcf_right);
         ws.addCell(nLbl);
     }
 %>

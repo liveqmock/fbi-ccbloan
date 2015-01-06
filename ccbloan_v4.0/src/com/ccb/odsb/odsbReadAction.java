@@ -127,7 +127,11 @@ public class odsbReadAction extends Action {
                         "BASICINTERATE," +
                         "RATEACT," +
                         "RATECALEVALUE," +
-                        "null as INTERATE," +
+
+                        //"null as INTERATE," +
+                        //20150104 zhanrui
+                        "FL_INTR as INTERATE," +
+
                         "INTEFINERATEFLOAT," +
                         "CAPIFINERATEFLOAT," +
                         "FINERATE," +
