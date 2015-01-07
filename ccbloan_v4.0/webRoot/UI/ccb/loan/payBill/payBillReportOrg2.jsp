@@ -296,7 +296,7 @@
 
                             + "  ,sum(case"
                             + "       when (" + criterion + ") then"
-                            + "        5.6*rt_orig_loan_amt"
+                            + "        (interate/5.6)*rt_orig_loan_amt"
                             + "       else"
                             + "        null"
                             + "     end) as wrate" + step     //wrate=weighted rate  加权利率   20150104 zr
@@ -320,7 +320,7 @@
         //统计条件定义表处理
         String configSql = "select t.enuitemlabel as itemtitle, t.enuitemdesc as itemcriteria" +
                 "  from PTENUDETAIL t" +
-                " where t.enutype = 'PAYBILL_INTRRATE' and t.enuitemvalue='1'" +
+                " where t.enutype = 'PAYBILL_INTRRATE' " +
                 " order by t.enuitemvalue";
         RecordSet configRs = conn.executeQuery(configSql);
 
