@@ -66,7 +66,8 @@
             " a.loanid, b.nbxh " +
             " from ln_mortinfo a " +
             " left outer join ln_loanapply b on a.loanid = b.loanid " +
-            " where (a.mortstatus in ('10', '40','20A') or a.PAPERRTNDATE>='2013-10-31'  or (a.mortstatus in ('41') and a.PAPERRTNDATE>='2013-10-31' ) ) " +
+            " where (a.mortstatus in ('10', '40','20A') or a.PAPERRTNDATE>='2013-10-31'  or (a.mortstatus in ('41') and a.CHGPAPERRTNDATE>='2013-10-31' ) " +
+            " or (a.mortstatus in ('50') and a.CLRPAPERDATE>='2013-10-31' )) " +
             " and nvl(a.nomortreasoncd,' ') not in('08','17') " +
             " and b.bankid in (" +
             " select deptid from ptdept " +
@@ -95,8 +96,8 @@
     dbGrid.setField("项目简称", "center", "10", "proj_name", "true", "0");
     dbGrid.setField("贷款申请序号", "text", "8", "loanid", "true", "0");
     dbGrid.setField("内部序号", "center", "15", "nbxh", "false", "0");
-    String whereStr = " and not exists (select c.loanid from ln_acctinfo c where a.loanid = c.loanid)";
-    whereStr = whereStr + " order by a.loanid ";
+//    String whereStr = " and not exists (select c.loanid from ln_acctinfo c where a.loanid = c.loanid)";
+    String whereStr =  " order by a.loanid ";
     dbGrid.setWhereStr(whereStr);
     dbGrid.setpagesize(30);
     dbGrid.setdataPilotID("datapilot");

@@ -1,8 +1,8 @@
 <!--
 /*********************************************************************
 * 功能描述:
-* 作 者: zhanrui
-* 开发日期: 2012-04-07
+* 作 者: huzy
+* 开发日期: 2014-12-2
 * 修 改 人:
 * 修改日期:
 * 版 权:
@@ -23,38 +23,26 @@
 <%@ page import="java.io.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.*" %>
+<%@ page import="pub.platform.db.RecordSet" %>
+<%@ page import="java.math.BigDecimal" %>
 <%
-    Log logger = LogFactory.getLog("acctInfoPrint.jsp");
+    Log logger = LogFactory.getLog("acctFieldReport.jsp");
 
     OperatorManager omgr = (OperatorManager) session.getAttribute(SystemAttributeNames.USER_INFO_NAME);
 //采用do while结构便于在主流程中监测错误发生后退出主程序；
     try {
         do {
             // 输出报表
-            String acctid = request.getParameter("acctid");
-            DatabaseConnection conn = ConnectionManager.getInstance().get();
-            int updateCnt = 0;
-
-            updateCnt = conn.executeUpdate("select * from ln_acctinfo a where a.pay_flag='0' and a.acct_id in("+acctid+")");
-            if(updateCnt>0){
-                out.write("该账户还没有进行报销处理!");
-                return;
-            }
-
-            updateCnt = conn.executeUpdate("select * from ln_acctinfo a where a.print_flag='1' and a.acct_id in("+acctid+")");
-            if(updateCnt>0){
-                out.write("该账户已经打印入账通知单!");
-                return;
-            }
+            String strLoanid = request.getParameter("strLoanid");
 
             response.reset();
             response.setContentType("application/vnd.ms-excel");
-            String exportName = new String("入账通知书.xls".getBytes(), "ISO8859-1");
+            String exportName = new String("汇总明细单.xls".getBytes(), "ISO8859-1");
             response.addHeader("Content-Disposition", "attachment; filename=" + exportName);
             // ----------------------------根据模板创建输出流----------------------------------------------------------------
             //得到报表模板
             String rptModelPath = PropertyManager.getProperty("REPORT_ROOTPATH");
-            String rptTemplateName = rptModelPath + "acctInfoPrint.xls";
+            String rptTemplateName = rptModelPath + "acctFieldReport.xls";
             File file = new File(rptTemplateName);
             // 判断模板是否存在,不存在则退出
             if (!file.exists()) {
@@ -64,17 +52,16 @@
 
             Map beans = new HashMap();
             String strWhere = "";
-            if (acctid != null && !acctid.equals("")) {
-                strWhere = " and a.acct_id in ("+acctid+")";
+            if (strLoanid != null && !strLoanid.equals("")) {
+                strWhere = " and a.loanid in("+strLoanid+")";
             }
-
             Date date = new Date();
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             String reportdate = df.format(date);
             //reportdate = reportdate.substring(0,4)+"年"+reportdate.substring(4,6)+"月"+reportdate.substring(6,8)+"日";
             beans.put("currdate", reportdate);
             beans.put("reportdate", "出表日期:" + reportdate); //报表TITLE使用
-
+            DatabaseConnection conn = ConnectionManager.getInstance().get();
             ReportManager reportManager = new ReportManagerImpl(conn.getConnection(), beans);
 
             String sql ="select rownum,aa.* from (select a.acct_id, ( select deptname from ptdept where deptid=b.bankid )as deptname, " +
@@ -92,10 +79,17 @@
             reportList = reportManager.exec(sql);
             beans.put("records",reportList);
 
-            SimpleDateFormat dfPrint = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String printTime = dfPrint.format(date);
-            updateCnt = 0;
-            updateCnt = conn.executeUpdate("update ln_acctinfo a set a.print_flag='1',print_time = '"+printTime+"'  where a.acct_id in("+acctid+")");
+            String strSql = "select sum(a.acct_amt) amt from ln_acctinfo a " +
+                    "             inner join ln_loanapply b on a.loanid = b.loanid   " +
+                    "             where 1 =1 "+  strWhere;
+            RecordSet rs = conn.executeQuery(strSql);
+            while (rs.next()) {
+                BigDecimal bigAmt = new BigDecimal(rs.getString("amt"));
+                beans.put("totalAmt", bigAmt);
+            }
+
+            int updateCnt = 0;
+            updateCnt = conn.executeUpdate("update ln_acctinfo a set a.report_flag='1' where a.loanid in ("+strLoanid+")");
             if(updateCnt<0){
                 out.write("生成报表时出现错误。");
             }

@@ -1,8 +1,8 @@
 <!--
 /*********************************************************************
 * 功能描述: 贷款管理
-* 作 者: leonwoo
-* 开发日期: 2010/01/16
+* 作 者: huzy
+* 开发日期: 2014/12/1
 * 修 改 人:
 * 修改日期:
 * 版 权: 公司
@@ -15,7 +15,7 @@
 <head>
     <META http-equiv="Content-Type" content="text/html; charset=GBK">
     <title></title>
-    <script language="javascript" src="acctInfo.js"></script>
+    <script language="javascript" src="acctFieldList.js"></script>
     <script language="javascript" src="/UI/support/pub.js"></script>
     <script language="javascript" src="/UI/support/suggest/js/ajaxSuggestions.js"></script>
     <style type="text/css" media="screen">
@@ -29,6 +29,7 @@
         }
     </script>
 </head>
+
 <%
     String menuAction = "";
     if (request.getParameter(CcbLoanConst.MENU_ACTION) != null) {
@@ -59,16 +60,17 @@
     DBGrid dbGrid = new DBGrid();
     dbGrid.setGridID("acctTab");
     dbGrid.setGridType("edit");
-    String commSql = "select a.acct_id, ( select deptname from ptdept where deptid=b.bankid )as deptname, " +
-            " a.loanid, b.cust_name, " +
+    String commSql = "select a.mortid,( select deptname from ptdept where deptid=b.bankid )as deptname, " +
+            " b.cust_name," +
             " ( select code_desc as text  from ln_odsb_code_desc where code_type_id='053' and code_id = b.ln_typ ) ln_typ, " +
-            " b.rt_orig_loan_amt,( select proj_name from ln_coopproj where proj_no=b.proj_no ) proj_name," +
-            " ( select enuitemlabel from PTENUDETAIL where enutype = 'APPTTYPE' and enuitemvalue = a.appt_type) appt_type," +
-            " a.acct_name,a.acct_no,a.acct_bank,a.acct_amt,a.pay_date,a.operid,a.recversion " +
-            " from ln_acctinfo a " +
-            " inner join ln_loanapply b on a.loanid = b.loanid  " +
-            " where 1 =1 "+
-            " and a.deptid in (" +
+            " b.rt_orig_loan_amt,( select proj_name from ln_coopproj where proj_no=b.proj_no ) proj_name, "+
+            " a.loanid, b.nbxh " +
+            " from ln_mortinfo a " +
+            " left outer join ln_loanapply b on a.loanid = b.loanid " +
+            " where (a.mortstatus in ('10', '40','20A') or a.PAPERRTNDATE>='2013-10-31'  or (a.mortstatus in ('41') and a.CHGPAPERRTNDATE>='2013-10-31' ) " +
+            " or (a.mortstatus in ('50') and a.CLRPAPERDATE>='2013-10-31' )) " +
+            " and nvl(a.nomortreasoncd,' ') not in('08','17') " +
+            " and b.bankid in (" +
             " select deptid from ptdept " +
             " start with deptid = '" + omgr.getOperator().getDeptid() +"'" +
             " connect by prior deptid = parentdeptid" +
@@ -86,25 +88,18 @@
         }
     */
     dbGrid.setfieldSQL(commSql);
-    dbGrid.setField("账户编号", "center", "5", "acct_id", "false", "0");
+
+    dbGrid.setField("抵押编号", "text", "10", "mortid", "false", "-1");
     dbGrid.setField("经办行", "center", "5", "deptname", "true", "0");
-    dbGrid.setField("贷款申请序号", "text", "8", "loanid", "true", "0");
     dbGrid.setField("借款人姓名", "center", "5", "cust_name", "true", "0");
-//    dbGrid.setField("抵押人姓名", "center", "5", "apptName", "true", "0");
     dbGrid.setField("贷款种类", "center", "5", "ln_typ", "true", "0");
     dbGrid.setField("贷款金额", "money", "6", "rt_orig_loan_amt", "true", "0");
     dbGrid.setField("项目简称", "center", "10", "proj_name", "true", "0");
-    dbGrid.setField("抵押类型", "center", "6", "appt_type", "true", "0");
-    dbGrid.setField("账户名称", "center", "5", "acct_name", "true", "0");
-    dbGrid.setField("收款账号", "center", "10", "acct_no", "true", "0");
-    dbGrid.setField("开户银行", "center", "10", "acct_bank", "true", "0");
-    dbGrid.setField("抵押费金额", "center", "4", "acct_amt", "true", "0");
-    dbGrid.setField("缴交日期", "center", "6", "pay_date", "true", "0");
-    dbGrid.setField("经办人", "center", "5", "operid", "true", "0");
-    dbGrid.setField("版本号", "text", "4", "recVersion", "false", "0");
-
-    String whereStr = " and (a.report_flag = '0' or a.print_flag='0' or a.pay_flag='0') ";
-    whereStr = whereStr +  " order by a.loanid ";
+    dbGrid.setField("贷款申请序号", "text", "8", "loanid", "true", "0");
+    dbGrid.setField("内部序号", "center", "15", "nbxh", "false", "0");
+   // dbGrid.setField("abc", "text", "10", "acctid", "false", "-1");
+    //String whereStr = " and not exists (select c.loanid from ln_acctinfo c where a.loanid = c.loanid)";
+    String whereStr =  " order by a.loanid ";
     dbGrid.setWhereStr(whereStr);
     dbGrid.setpagesize(20);
     dbGrid.setdataPilotID("datapilot");
@@ -112,7 +107,7 @@
     if (menuAction.equals(CcbLoanConst.MENU_SELECT)) {
         dbGrid.setbuttons("查看贷款=query,moveFirst,prevPage,nextPage,moveLast");
     } else {
-        dbGrid.setbuttons("缴费报销=batchEdit,通知书打印=filePrint,汇总导出=allExport,moveFirst,prevPage,nextPage,moveLast");
+        dbGrid.setbuttons("查看贷款=loanQuery,缴费报销=batchEdit,汇总导出=allExport,moveFirst,prevPage,nextPage,moveLast");
     }
 %>
 <body bgcolor="#ffffff" onLoad="body_resize()" onResize="body_resize();" class="Bodydefault">
@@ -123,8 +118,11 @@
             <!-- 隐藏字段 -->
             <input type="hidden" id="ploanProxyDept" name="ploanProxyDept"  value="<%=ploanProxyDept%>"/>
             <input type="hidden" id="user_deptid" name="user_deptid"  value="<%=deptId%>"/>
-            <input type="hidden" id="acctid" name="acctid"/>
+            <input type="hidden" id="strLoanid" name="strLoanid"/>
             <tr height="20">
+                <td width="10%" nowrap="nowrap" class="lbl_right_padding">贷款申请序号</td>
+                <td width="15%" nowrap="nowrap" class="data_input">
+                    <input type="text" id="loanID" name="loanID" style="width:90% "></td>
                 <td width="10%" nowrap="nowrap" class="lbl_right_padding">经办机构</td>
                 <td width="15%" nowrap="nowrap" class="data_input">
                     <%
@@ -142,16 +140,36 @@
                         }
                         zs.addAttr("style", "width: 90%");
                         zs.addAttr("fieldType", "text");
+
                         out.print(zs);
                     %>
                 </td>
+                <td width="10%" nowrap="nowrap" class="lbl_right_padding">贷款种类</td>
+                <td width="15%" nowrap="nowrap" class="data_input">
+                    <%
+                        zs = new ZtSelect("ln_typ", "", "");
+                        zs.setSqlString("select code_id,code_desc from ln_odsb_code_desc where code_type_id='053' order by code_id");
+                        zs.addAttr("style", "width: 90%");
+                        zs.addAttr("fieldType", "text");
+                        zs.addOption("", "");
+                        out.print(zs);
+                    %>
+                </td>
+                <td width="10%" nowrap="nowrap" class="lbl_right_padding">抵押流程状态</td>
+                <td width="15%" class="data_input"><%
+                    zs = new ZtSelect("MORTSTATUS", "MORTSTATUS", "");
+                    zs.addAttr("style", "width: 90%");
+                    zs.addAttr("fieldType", "text");
+                    //zs.addAttr("isNull","false");
+                    zs.addOption("", "");
+                    out.print(zs);
+                %>
+                </td>
+            </tr>
+            <tr>
                 <td width="10%" align="right" nowrap="nowrap" class="lbl_right_padding"> 借款人姓名</td>
                 <td width="15%" align="right" nowrap="nowrap" class="data_input">
                     <input type="text" id="cust_name" name="cust_name" size="50" style="width:90% ">
-                </td>
-                <td width="10%" align="right" nowrap="nowrap" class="lbl_right_padding"> 抵押人姓名</td>
-                <td width="15%" align="right" nowrap="nowrap" class="data_input">
-                    <input type="text" id="appt_name" name="appt_name" size="50" style="width:90% ">
                 </td>
                 <td width="10%" nowrap="nowrap" class="lbl_right_padding">交易中心</td>
                 <td width="15%" nowrap="nowrap" class="data_input">
@@ -168,39 +186,15 @@
                         out.print(zs);
                     %>
                 </td>
-                <td align="center" nowrap="nowrap">
-                    <input name="cbRetrieve" type="button" class="buttonGrooveDisable"
-                                                          id="button" onClick="cbRetrieve_Click(document.queryForm)"
-                                                          value="检索">
-                </td>
-            </tr>
-            <tr>
                 <td width="10%" align="right" nowrap="nowrap" class="lbl_right_padding"> 合作项目简称</td>
                 <td width="15%" align="right" nowrap="nowrap"
                     class="data_input">
                     <input type="text" id="proj_name" size="60" style="width:90% ">
                 </td>
-                <td width="10%" align="right" nowrap="nowrap" class="lbl_right_padding"> 是否已经缴费报销</td>
-                <td width="15%" align="right" nowrap="nowrap"
-                    class="data_input">
-                    <%
-                        zs = new ZtSelect("pay_flag", "BOOLTYPE", "");
-                        zs.addAttr("style", "width: 90%");
-                        zs.addAttr("fieldType", "text");
-                        //zs.addAttr("isNull","false");
-                        zs.addOption("", "");
-                        out.print(zs);
-                    %>
-                </td>
-                <td width="10%" nowrap="nowrap" class="lbl_right_padding">报销开始日期</td>
-                <td width="15%" nowrap="nowrap" class="data_input"><input type="text" id="PAY_DATE1"
-                                                                          name="PAY_DATE1" onClick="WdatePicker()"
-                                                                          fieldType="date" size="20%"></td>
-                <td width="10%" nowrap="nowrap" class="lbl_right_padding">报销截止日期</td>
-                <td width="15%" nowrap="nowrap" class="data_input"><input type="text" id="PAY_DATE2"
-                                                                          name="PAY_DATE2" onClick="WdatePicker()"
-                                                                          fieldType="date" size="20%"></td>
-                <td align="center" nowrap="nowrap">
+                <td align="center" nowrap="nowrap" colspan="2">
+                    <input name="cbRetrieve" type="button" class="buttonGrooveDisable"
+                           id="button" onClick="cbRetrieve_Click(document.queryForm)"
+                           value="检索">
                     <input name="Input" class="buttonGrooveDisable" type="reset" value="重填">
                 </td>
             </tr>

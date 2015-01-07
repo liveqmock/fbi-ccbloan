@@ -6,8 +6,10 @@ import com.ccb.dao.LNTASKINFO;
 import com.ccb.mortgage.MortUtil;
 import com.ccb.util.CcbLoanConst;
 import com.ccb.util.SeqUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.poi.util.StringUtil;
 import pub.platform.advance.utils.PropertyManager;
 import pub.platform.db.RecordSet;
 import pub.platform.form.control.Action;
@@ -295,8 +297,8 @@ public class AcctInfoAction extends Action {
                 String deptid = req.getFieldValue("DEPT_ID");
                 try {
                     updateCnt = dc.executeUpdate(" select a.loanid from " +
-//                            " ODSBDATA.BF_AGT_LNP_REPAY_ACCT_PMIS@odsb a " +
-                            " BF_AGT_LNP_REPAY_ACCT_PMIS a " +
+                            " ODSBDATA.BF_AGT_LNP_REPAY_ACCT_PMIS@odsb a " +
+//                            " BF_AGT_LNP_REPAY_ACCT_PMIS a " +
                             " where a.SUBSKIND=1 and SUBSORDER =1 " +
                             " and a.loanid in (" + strLoanid+
                             " )");
@@ -324,8 +326,8 @@ public class AcctInfoAction extends Action {
                                 "AWBK," +
                                 "SUBSORDER," +
                                 "ODS_LOAD_DT " +
-//                            " from  ODSBDATA.BF_AGT_LNP_REPAY_ACCT_PMIS@odsb a " +
-                                " from  BF_AGT_LNP_REPAY_ACCT_PMIS a " +
+                            " from  ODSBDATA.BF_AGT_LNP_REPAY_ACCT_PMIS@odsb a " +
+//                                " from  BF_AGT_LNP_REPAY_ACCT_PMIS a " +
                                 " where a.SUBSKIND=1 and SUBSORDER =1 " +
                                 " and a.loanid in (" +  strLoanid+
                                 " )");
@@ -390,6 +392,80 @@ public class AcctInfoAction extends Action {
         this.res.setType(0);
         this.res.setResult(true);
         this.res.setMessage(PropertyManager.getProperty("200"));
+        return 0;
+    }
+
+    //抵押外勤表打印功能中的缴费报销
+    public int addAcctField() {
+
+        String[] loanidArray= this.req.getFieldValue("strLoanid").split(",");
+        for (int i = 0; i <loanidArray.length ; i++) {
+            try {
+                acct = new LNACCTINFO();
+                // 检测贷款序号有无重复
+                RecordSet rec = dc.executeQuery("select 1 from ln_acctinfo where loanid='"
+                        + loanidArray[i].trim() + "'");
+                while (rec.next()) {
+                    this.res.setType(0);
+                    this.res.setResult(false);
+                    this.res.setMessage("该贷款申请序号的账户信息系统中已存在！" + "\r\n贷款申请序号："
+                            + loanidArray[i].trim());
+                    return -1;
+                }
+                if (rec != null) {
+                    rec.close();
+                }
+                // 初始化数据bean
+                //acct.initAll(i, req);
+                acct.setLoanid(loanidArray[i].trim());
+                acct.setAcct_name(this.req.getFieldValue("clientNames").replaceAll("\\d\\.", "").split(" ")[i]);
+                acct.setDeptid(this.getDept().getDeptid());
+                if(!StringUtils.isBlank(this.req.getFieldValue("acct_amt"))){
+                    acct.setAcct_amt(Double.parseDouble(this.req.getFieldValue("acct_amt")));
+                }
+                 acct.setRemark(this.req.getFieldValue("remark"));
+
+                //acct.setAcct_bank();
+                acct.setOperdate(BusinessDate.getToday());
+                acct.setOperid(this.getOperator().getOperid());
+                acct.setPay_date(BusinessDate.getToday());
+                acct.setPay_flag("1");
+                acct.setReport_flag("0");
+                acct.setPrint_flag("0");
+                acct.setCancel_flag("0");
+                acct.setRecversion(0);
+                //20131106 linyong 直接取号
+                String acctid = SeqUtil.getAcctid();
+                acct.setAcct_id(acctid);
+                if (acct.insert() < 0) {
+                    this.res.setType(0);
+                    this.res.setResult(false);
+                    this.res.setMessage("LN_ACCTINFO添加失败，流水号重复或字段填写有误。");
+                    return -1;
+                }
+
+                // 流水日志表
+                //task = MortUtil.getTaskObj(acct.getFlowsn(), req.getFieldValue(i, "busiNode"), CcbLoanConst.OPER_ADD);
+                task = MortUtil.getTaskObj(acct.getAcct_id(), "Acct01:ADD", CcbLoanConst.OPER_ADD);
+                task.setOperid(this.getOperator().getOperid());
+                task.setBankid(this.getOperator().getDeptid());
+                if (task.insert() < 0) {
+                    this.res.setType(0);
+                    this.res.setResult(false);
+                    this.res.setMessage("操作日志表处理错误.");
+                    return -1;
+                }
+            } catch (Exception ex1) {
+                logger.error(ex1.getMessage());
+                this.res.setType(0);
+                this.res.setResult(false);
+                this.res.setMessage("处理异常.");
+                return -1;
+            }
+        }
+        this.res.setType(0);
+        this.res.setResult(true);
+        this.res.setMessage("处理成功.");
         return 0;
     }
 
