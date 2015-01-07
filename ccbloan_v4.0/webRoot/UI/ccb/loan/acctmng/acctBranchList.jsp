@@ -95,8 +95,8 @@
     dbGrid.setField("项目简称", "center", "10", "proj_name", "true", "0");
     dbGrid.setField("贷款申请序号", "text", "8", "loanid", "true", "0");
     dbGrid.setField("内部序号", "center", "15", "nbxh", "false", "0");
-    String whereStr = " and not exists (select c.loanid from ln_acctinfo c where b.loanid = c.loanid)";
-    whereStr = whereStr + " order by b.loanid ";
+    //String whereStr = " and not exists (select c.loanid from ln_acctinfo c where b.loanid = c.loanid)";
+    String whereStr = " order by b.loanid ";
     dbGrid.setWhereStr(whereStr);
     dbGrid.setpagesize(30);
     dbGrid.setdataPilotID("datapilot");

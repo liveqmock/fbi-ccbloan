@@ -135,6 +135,7 @@ function cbRetrieve_Click(formname) {
 
     if (trimStr(document.getElementById("mortecentercd").value) != "") {
         whereStr += " and a.mortecentercd ='" + trimStr(document.getElementById("mortecentercd").value) + "' ";
+
     }else{
         if (trimStr(document.getElementById("ploanProxyDept").value) == "1") {
             whereStr +=  " and a.mortecentercd in (select mortecentercd from LN_MORTCENTER_APPT where deptid='" + document.getElementById("user_deptid").value +"' and typeflag='0') ";
@@ -144,7 +145,13 @@ function cbRetrieve_Click(formname) {
     //抵押流程状态 mortstatus
     if (trimStr(document.getElementById("MORTSTATUS").value) != "") {
         whereStr += " and a.MORTSTATUS ='" + trimStr(document.getElementById("MORTSTATUS").value) + "'";
+         //huzhenyang追加
+        //抵押流程状态 mortstatus为已借证回证
+//        if(trimStr(document.getElementById("MORTSTATUS").value) == 41){
+//            whereStr +="  and a.PAPERRTNDATE >= '2013-10-31' "
+//        }
     }
+
 
     //贷款种类 ln_typ
     if (trimStr(document.getElementById("ln_typ").value) != "") {
@@ -155,7 +162,7 @@ function cbRetrieve_Click(formname) {
         whereStr += " and b.proj_no in ( select proj_no from ln_coopproj where proj_name like '%" + trimStr(document.getElementById("proj_name").value) + "%')";
     }
 
-//    whereStr = whereStr + " and not exists (select c.loanid from ln_acctinfo c where a.loanid = c.loanid)";
+    //whereStr = whereStr + " and not exists (select c.loanid from ln_acctinfo c where a.loanid = c.loanid)";
     whereStr += " order by a.loanid ";
 
     document.all["acctTab"].whereStr = whereStr;
@@ -497,6 +504,7 @@ function acctTab_getAcctNo_click() {
 /**
  * 批量确认
  */
+/*
 function acctTab_getBatchAcctNo_click() {
     // 选取数据标志
     var checked = false;
@@ -545,4 +553,135 @@ function acctTab_getBatchAcctNo_click() {
         document.getElementById("acctTab").RecordCount = "0";
         Table_Refresh("acctTab", false, body_resize);
     }
+}
+*/
+
+/**
+ * 批量确认
+ */
+function acctTab_batchEdit_click() {
+    // 选取数据标志
+    var checked = false;
+    var tab = document.all.acctTab;
+    var clientNames = "";
+    var strLoanid="";
+    var count = 0;
+    for (var i = 0; i < tab.rows.length; i++) {
+        if (tab.rows[i].cells[0].children[0] != undefined && tab.rows[i].cells[0].children[0].checked) {
+            tab.rows[i].operate = "delete";
+            checked = true;
+            // ---
+            // 创建TD的recversion传递到后台以便并发控制；
+            var _cell = document.createElement("td");
+            _cell.setAttribute("fieldname", "recversion");
+            // _cell.setAttribute("style","display:none");
+            _cell.style.display = "none";
+            _cell.setAttribute("fieldtype", "text");
+            _cell.setAttribute("oldvalue", tab.rows[i].ValueStr.split(";")[14]);
+            tab.rows[i].appendChild(_cell);
+            // ---loanid
+            _cell = document.createElement("td");
+            _cell.setAttribute("fieldname", "acctid");
+            // _cell.setAttribute("style","display:none");
+            _cell.style.display = "none";
+            _cell.setAttribute("fieldtype", "text");
+            _cell.setAttribute("oldvalue", tab.rows[i].ValueStr.split(";")[0]);
+            tab.rows[i].appendChild(_cell);
+            count++;
+            clientNames += "" + count + "." + tab.rows[i].ValueStr.split(";")[2] + " ";
+            //loanid+= tab.rows[i].ValueStr.split(";")[6]+",";
+            if (strLoanid==""){
+                strLoanid =tab.rows[i].ValueStr.split(";")[6];
+            }else{
+                strLoanid +=","+tab.rows[i].ValueStr.split(";")[6];
+            }
+        } else {
+            tab.rows[i].operate = "";
+        }
+    }
+    if (!checked) {
+        alert(MSG_NORECORD);
+        return;
+    }
+
+    var sfeature = "dialogwidth:560px; dialogheight:300px;center:yes; help:no;resizable:yes;scroll:yes;status:no";
+    var arg = {};
+    arg.doType = "edit";
+    arg.clientNames = clientNames;
+    arg.strLoanid=strLoanid
+    var rtn = dialog("acctFieldConfirmPay.jsp?doType=add&strLoanid="+strLoanid, arg, sfeature);
+
+    function appendOneTdIntoRow(fieldname, oldvalue) {
+        _cell = document.createElement("td");
+        _cell.setAttribute("fieldname", fieldname);
+        _cell.style.display = "none";
+        _cell.setAttribute("fieldtype", "text");
+        _cell.setAttribute("oldvalue", oldvalue);
+        tab.rows[i].appendChild(_cell);
+    }
+    if (rtn != undefined) {
+        for (var i = 0; i < tab.rows.length; i++) {
+            if (tab.rows[i].cells[0].children[0] != undefined && tab.rows[i].cells[0].children[0].checked) {
+                tab.rows[i].operate = "delete";
+                checked = true;
+                var _cell;
+                appendOneTdIntoRow("pay_flag", "1"); //处理完成（退回后（或权证回证），本次预约行为即为完成）
+                appendOneTdIntoRow("action_type", "pay_confirm"); //退回
+            } else {
+                tab.rows[i].operate = "";
+            }
+        }
+
+/*        // 提交后台进行批量修改
+        var retxml = postGridRecord(tab);
+        // analyzeReturnXML in dbutil.js pack
+        if (retxml + "" == "true") {
+            document.getElementById("acctTab").RecordCount = "0";
+            Table_Refresh("acctTab", false, body_resize);
+            window.returnValue = "1";
+        }*/
+    }
+}
+
+/**
+ *          汇总导出
+ *          aram doType:操作类型
+ *          修改 edit
+ * @param acctid:内部序号
+ */
+function acctTab_allExport_click() {
+    //增加系统锁检查
+    if (getSysLockStatus() == "1") {
+        alert(MSG_SYSLOCK);
+        return;
+    }
+    // 选取数据标志
+    var checked = false;
+    var tab = document.all.acctTab;
+    var strLoanid = "";
+    var count = 0;
+    for (var i = 0; i < tab.rows.length; i++) {
+        if (tab.rows[i].cells[0].children[0] != undefined && tab.rows[i].cells[0].children[0].checked) {
+            tab.rows[i].operate = "delete";
+            checked = true;
+            count++;
+            if(strLoanid==""){
+                strLoanid ="'"+tab.rows[i].ValueStr.split(";")[6] + "'";
+            } else{
+                strLoanid +=",'"+tab.rows[i].ValueStr.split(";")[6] + "'";
+            }
+
+        } else {
+            tab.rows[i].operate = "";
+        }
+    }
+    if (!checked) {
+        alert(MSG_NORECORD);
+        return;
+    }
+
+    document.getElementById("strLoanid").value=strLoanid;
+    document.getElementById("queryForm").target = "_blank";
+    document.getElementById("queryForm").action = "acctFileReport.jsp?strLoanid=" + strLoanid;
+    document.getElementById("queryForm").submit();
 }

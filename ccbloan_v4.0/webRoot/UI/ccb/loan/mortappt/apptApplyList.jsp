@@ -103,7 +103,7 @@
     // 该字段是批量更新防止并发问题关键字段，不能删除，且顺序号固定：11
     dbGrid.setField("版本号", "text", "4", "recVersion", "false", "0");
     dbGrid.setField("业务流水号", "center", "12", "FLOWSN", "false", "0");
-    dbGrid.setField("放款方式", "dropdown", "6", "RELEASECONDCD", "true", "RELEASECONDCD");
+        dbGrid.setField("放款方式", "dropdown", "6", "RELEASECONDCD", "true", "RELEASECONDCD");
 
     dbGrid.setWhereStr(" and 1!=1 ");
     dbGrid.setpagesize(50);
