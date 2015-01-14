@@ -109,7 +109,7 @@
     dbGrid.setpagesize(50);
     dbGrid.setdataPilotID("datapilot");
     dbGrid.setCheck(true);
-    dbGrid.setbuttons("查看贷款=loanQuery,查看抵押=query,批量预约=batchEdit,moveFirst,prevPage,nextPage,moveLast");
+    dbGrid.setbuttons("导出Excel=excel,查看贷款=loanQuery,查看抵押=query,批量预约=batchEdit,moveFirst,prevPage,nextPage,moveLast");
 %>
 <body bgcolor="#ffffff" onload="body_resize()" onresize="body_resize();" class="Bodydefault">
 

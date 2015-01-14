@@ -296,7 +296,7 @@
 
                             + "  ,sum(case"
                             + "       when (" + criterion + ") then"
-                            + "        (interate/5.6)*rt_orig_loan_amt"
+                            + "        (interate)*rt_orig_loan_amt"
                             + "       else"
                             + "        null"
                             + "     end) as wrate" + step     //wrate=weighted rate  加权利率   20150104 zr
