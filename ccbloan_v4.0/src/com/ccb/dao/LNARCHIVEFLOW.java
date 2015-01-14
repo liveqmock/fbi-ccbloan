@@ -1,12 +1,10 @@
 package com.ccb.dao;
 
-import pub.platform.db.AbstractBasicBean;
-import pub.platform.db.RecordSet;
-import pub.platform.utils.ActionRequest;
-import pub.platform.utils.ChangeFileds;
-import pub.platform.utils.Field;
+import java.util.*;
 
-import java.util.List;
+import pub.platform.db.*;
+import pub.platform.utils.*;
+import pub.platform.db.AbstractBasicBean;
 
 public class LNARCHIVEFLOW extends AbstractBasicBean implements Cloneable {
     public static List find(String sSqlWhere) {
@@ -74,6 +72,13 @@ public class LNARCHIVEFLOW extends AbstractBasicBean implements Cloneable {
     String hangupreason;
     String remark;
     int recversion;
+    String operdatenext;
+    String opertimenext;
+    String operidnext;
+    String roleidnext;
+    String isclosed;
+    String operdateclose;
+    String opertimeclose;
     public static final String TABLENAME = "ln_archive_flow";
     private String operate_mode = "add";
     public ChangeFileds cf = new ChangeFileds();
@@ -106,6 +111,20 @@ public class LNARCHIVEFLOW extends AbstractBasicBean implements Cloneable {
         abb.setKeyValue("REMARK", "" + abb.getRemark());
         abb.recversion = rs.getInt("recversion");
         abb.setKeyValue("RECVERSION", "" + abb.getRecversion());
+        abb.operdatenext = rs.getString("operdatenext");
+        abb.setKeyValue("OPERDATENEXT", "" + abb.getOperdatenext());
+        abb.opertimenext = rs.getString("opertimenext");
+        abb.setKeyValue("OPERTIMENEXT", "" + abb.getOpertimenext());
+        abb.operidnext = rs.getString("operidnext");
+        abb.setKeyValue("OPERIDNEXT", "" + abb.getOperidnext());
+        abb.roleidnext = rs.getString("roleidnext");
+        abb.setKeyValue("ROLEIDNEXT", "" + abb.getRoleidnext());
+        abb.isclosed = rs.getString("isclosed");
+        abb.setKeyValue("ISCLOSED", "" + abb.getIsclosed());
+        abb.operdateclose = rs.getString("operdateclose");
+        abb.setKeyValue("OPERDATECLOSE", "" + abb.getOperdateclose());
+        abb.opertimeclose = rs.getString("opertimeclose");
+        abb.setKeyValue("OPERTIMECLOSE", "" + abb.getOpertimeclose());
         list.add(abb);
         abb.operate_mode = "edit";
     }
@@ -162,6 +181,41 @@ public class LNARCHIVEFLOW extends AbstractBasicBean implements Cloneable {
 
     public int getRecversion() {
         return this.recversion;
+    }
+
+    public String getOperdatenext() {
+        if (this.operdatenext == null) return "";
+        return this.operdatenext;
+    }
+
+    public String getOpertimenext() {
+        if (this.opertimenext == null) return "";
+        return this.opertimenext;
+    }
+
+    public String getOperidnext() {
+        if (this.operidnext == null) return "";
+        return this.operidnext;
+    }
+
+    public String getRoleidnext() {
+        if (this.roleidnext == null) return "";
+        return this.roleidnext;
+    }
+
+    public String getIsclosed() {
+        if (this.isclosed == null) return "";
+        return this.isclosed;
+    }
+
+    public String getOperdateclose() {
+        if (this.operdateclose == null) return "";
+        return this.operdateclose;
+    }
+
+    public String getOpertimeclose() {
+        if (this.opertimeclose == null) return "";
+        return this.opertimeclose;
     }
 
     public void setPkid(String pkid) {
@@ -252,6 +306,64 @@ public class LNARCHIVEFLOW extends AbstractBasicBean implements Cloneable {
         this.recversion = recversion;
     }
 
+    public void setOperdatenext(String operdatenext) {
+        sqlMaker.setField("operdatenext", operdatenext, Field.TEXT);
+        if (this.operate_mode.equals("edit")) {
+            if (!this.getOperdatenext().equals(operdatenext)) cf.add("operdatenext", this.operdatenext, operdatenext);
+        }
+        this.operdatenext = operdatenext;
+    }
+
+    public void setOpertimenext(String opertimenext) {
+        sqlMaker.setField("opertimenext", opertimenext, Field.TEXT);
+        if (this.operate_mode.equals("edit")) {
+            if (!this.getOpertimenext().equals(opertimenext)) cf.add("opertimenext", this.opertimenext, opertimenext);
+        }
+        this.opertimenext = opertimenext;
+    }
+
+    public void setOperidnext(String operidnext) {
+        sqlMaker.setField("operidnext", operidnext, Field.TEXT);
+        if (this.operate_mode.equals("edit")) {
+            if (!this.getOperidnext().equals(operidnext)) cf.add("operidnext", this.operidnext, operidnext);
+        }
+        this.operidnext = operidnext;
+    }
+
+    public void setRoleidnext(String roleidnext) {
+        sqlMaker.setField("roleidnext", roleidnext, Field.TEXT);
+        if (this.operate_mode.equals("edit")) {
+            if (!this.getRoleidnext().equals(roleidnext)) cf.add("roleidnext", this.roleidnext, roleidnext);
+        }
+        this.roleidnext = roleidnext;
+    }
+
+    public void setIsclosed(String isclosed) {
+        sqlMaker.setField("isclosed", isclosed, Field.TEXT);
+        if (this.operate_mode.equals("edit")) {
+            if (!this.getIsclosed().equals(isclosed)) cf.add("isclosed", this.isclosed, isclosed);
+        }
+        this.isclosed = isclosed;
+    }
+
+    public void setOperdateclose(String operdateclose) {
+        sqlMaker.setField("operdateclose", operdateclose, Field.TEXT);
+        if (this.operate_mode.equals("edit")) {
+            if (!this.getOperdateclose().equals(operdateclose))
+                cf.add("operdateclose", this.operdateclose, operdateclose);
+        }
+        this.operdateclose = operdateclose;
+    }
+
+    public void setOpertimeclose(String opertimeclose) {
+        sqlMaker.setField("opertimeclose", opertimeclose, Field.TEXT);
+        if (this.operate_mode.equals("edit")) {
+            if (!this.getOpertimeclose().equals(opertimeclose))
+                cf.add("opertimeclose", this.opertimeclose, opertimeclose);
+        }
+        this.opertimeclose = opertimeclose;
+    }
+
     public void init(int i, ActionRequest actionRequest) throws Exception {
         if (actionRequest.getFieldValue(i, "pkid") != null) {
             this.setPkid(actionRequest.getFieldValue(i, "pkid"));
@@ -286,6 +398,27 @@ public class LNARCHIVEFLOW extends AbstractBasicBean implements Cloneable {
         if (actionRequest.getFieldValue(i, "recversion") != null && actionRequest.getFieldValue(i, "recversion").trim().length() > 0) {
             this.setRecversion(Integer.parseInt(actionRequest.getFieldValue(i, "recversion")));
         }
+        if (actionRequest.getFieldValue(i, "operdatenext") != null) {
+            this.setOperdatenext(actionRequest.getFieldValue(i, "operdatenext"));
+        }
+        if (actionRequest.getFieldValue(i, "opertimenext") != null) {
+            this.setOpertimenext(actionRequest.getFieldValue(i, "opertimenext"));
+        }
+        if (actionRequest.getFieldValue(i, "operidnext") != null) {
+            this.setOperidnext(actionRequest.getFieldValue(i, "operidnext"));
+        }
+        if (actionRequest.getFieldValue(i, "roleidnext") != null) {
+            this.setRoleidnext(actionRequest.getFieldValue(i, "roleidnext"));
+        }
+        if (actionRequest.getFieldValue(i, "isclosed") != null) {
+            this.setIsclosed(actionRequest.getFieldValue(i, "isclosed"));
+        }
+        if (actionRequest.getFieldValue(i, "operdateclose") != null) {
+            this.setOperdateclose(actionRequest.getFieldValue(i, "operdateclose"));
+        }
+        if (actionRequest.getFieldValue(i, "opertimeclose") != null) {
+            this.setOpertimeclose(actionRequest.getFieldValue(i, "opertimeclose"));
+        }
     }
 
     public void init(ActionRequest actionRequest) throws Exception {
@@ -313,6 +446,13 @@ public class LNARCHIVEFLOW extends AbstractBasicBean implements Cloneable {
         obj.setHangupreason(obj.hangupreason);
         obj.setRemark(obj.remark);
         obj.setRecversion(obj.recversion);
+        obj.setOperdatenext(obj.operdatenext);
+        obj.setOpertimenext(obj.opertimenext);
+        obj.setOperidnext(obj.operidnext);
+        obj.setRoleidnext(obj.roleidnext);
+        obj.setIsclosed(obj.isclosed);
+        obj.setOperdateclose(obj.operdateclose);
+        obj.setOpertimeclose(obj.opertimeclose);
         return obj;
     }
 }

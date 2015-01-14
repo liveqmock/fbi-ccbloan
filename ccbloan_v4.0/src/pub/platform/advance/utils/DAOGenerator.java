@@ -81,12 +81,12 @@ public class DAOGenerator {
     // 生成单个表的文件
 //    generateAllTables();
 //     generateTable("LN_ARCHIVE_INFO");
-//     generateTable("LN_ARCHIVE_FLOW");
+     generateTable("LN_ARCHIVE_FLOW");
 //     generateTable("LN_MORTINFO");
 //     generateTable("LN_MORTLIMIT");
 //     generateTable("LN_SPCLBUS_FLOW");
 //     generateTable("LN_SPCLBUS_INFO");
-     generateTable("LN_SPCLBUS_CUST");
+//     generateTable("LN_SPCLBUS_CUST");
 //     generateTable("LN_ODSB_REPAY_ACCT_PMIS");
   }
 }

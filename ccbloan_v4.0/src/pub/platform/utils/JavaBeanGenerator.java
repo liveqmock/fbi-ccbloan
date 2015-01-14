@@ -114,7 +114,10 @@ public class JavaBeanGenerator {
                System.out.println("Error!");
                return;
           }
+
           String filepath = "src/"+classPath.replace('.','/')+"/";
+//          String filepath = "d:/temp/src/"+classPath.replace('.','/')+"/";
+
           tablename = tablename.toUpperCase();
           System.out.println("======正在产生类【"+filepath+className+".java】======");
           try {

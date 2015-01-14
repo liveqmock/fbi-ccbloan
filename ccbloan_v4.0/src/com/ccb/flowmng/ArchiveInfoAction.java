@@ -3,6 +3,7 @@ package com.ccb.flowmng;
 import com.ccb.dao.LNARCHIVEFLOW;
 import com.ccb.dao.LNARCHIVEINFO;
 import com.ccb.dao.LNTASKINFO;
+import com.ccb.dao.PTOPERROLE;
 import com.ccb.mortgage.MortUtil;
 import com.ccb.util.CcbLoanConst;
 import org.apache.commons.logging.Log;
@@ -28,10 +29,11 @@ public class ArchiveInfoAction extends Action {
         loan = new LNARCHIVEINFO();
         for (int i = 0; i < this.req.getRecorderCount(); i++) {
             try {
+                String operid = this.getOperator().getOperid();
                 // 初始化数据bean
                 loan.initAll(i, req);
                 loan.setOperdate(BusinessDate.getToday());
-                loan.setOperid(this.getOperator().getOperid());
+                loan.setOperid(operid);
                 loan.setRecversion(0);
                 if (loan.insert() < 0) {
                     this.res.setType(0);
@@ -45,17 +47,26 @@ public class ArchiveInfoAction extends Action {
                 flow.setPkid(UUID.randomUUID().toString());
                 flow.setFlowsn(loan.getFlowsn());
                 String  flowstat =  req.getFieldValue(i, "flowstat");
-//                if (flowstat == null) {
-//                    flowstat = req.getFieldValue(i, "flowstat2");
-//                }
                 flow.setFlowstat(flowstat);
                 flow.setHanguptype("");
                 flow.setHangupreason("");
                 flow.setRemark(req.getFieldValue(i, "AF_REMARK"));
                 flow.setOperdate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
                 flow.setOpertime(new SimpleDateFormat("HH:mm:ss").format(new Date()));
-                flow.setOperid(this.getOperator().getOperid());
+                flow.setOperid(operid);
                 flow.setRecversion(0);
+                flow.setIsclosed("0");
+                //获取岗位ID
+                flow.setRoleid("");
+                PTOPERROLE ptoperrole = PTOPERROLE.findFirst(" where operid='" + operid + "' and roleid like 'WF%'");
+                if (ptoperrole != null) {
+                    flow.setRoleid(ptoperrole.getRoleid());
+                } else {
+                    ptoperrole = PTOPERROLE.findFirst(" where operid='" + operid + "'");
+                    if (ptoperrole != null)
+                        flow.setRoleid(ptoperrole.getRoleid());
+                }
+
                 if (flow.insert() < 0) {
                     this.res.setType(0);
                     this.res.setResult(false);
@@ -67,7 +78,7 @@ public class ArchiveInfoAction extends Action {
                 // 流水日志表
                 //task = MortUtil.getTaskObj(loan.getFlowsn(), req.getFieldValue(i, "busiNode"), CcbLoanConst.OPER_ADD);
                 task = MortUtil.getTaskObj(loan.getFlowsn(), "Flow01:ADD", CcbLoanConst.OPER_ADD);
-                task.setOperid(this.getOperator().getOperid());
+                task.setOperid(operid);
                 task.setBankid(this.getOperator().getDeptid());
                 if (task.insert() < 0) {
                     this.res.setType(0);
@@ -137,9 +148,6 @@ public class ArchiveInfoAction extends Action {
                     return -1;
                 }
                 String  flowstat =  req.getFieldValue(i, "flowstat");
-//                if (flowstat == null) {
-//                    flowstat = req.getFieldValue(i, "flowstat2");
-//                }
                 flow.setFlowstat(flowstat);
 
                 flow.setRemark(req.getFieldValue(i, "af_remark"));

@@ -1,8 +1,8 @@
 <!--
 /*********************************************************************
-* 功能描述: 流程处理综合查询
+* 功能描述: 按操作员管理在岗卷宗
 * 作 者: zr
-* 开发日期: 2013/03/10
+* 开发日期: 2015/01/10
 * 修 改 人:
 * 修改日期:
 ***********************************************************************/
@@ -25,14 +25,14 @@
     DBGrid dbGrid = new DBGrid();
     dbGrid.setGridID("flowInfoTab");
     dbGrid.setGridType("edit");
-    String infoSql = "select " +
+    String infoSql = "select d.pkid," +
             "       (select opername from ptoper where operid = d.operid) as opername," +
-            "       (select roledesc from ptrole where roleid = (select min(roleid) from ptoperrole where operid = d.operid and roleid like 'WF%')) as roledesc," +
+            "       (select roledesc from ptrole where roleid = d.roleid) as roledesc," +
             "       d.operdate," +
             "       d.opertime," +
             "       d.flowstat," +
             "       d.remark," +
-            "       a.flowsn as keycode," +
+            "       d.flowsn as keycode," +
             "       decode(b.loanid, null, a.cust_name, b.cust_name) cust_name," +
             "       decode(b.loanid, null, a.rt_orig_loan_amt, b.rt_orig_loan_amt) rt_orig_loan_amt," +
             "       decode(b.loanid, null, a.rt_term_incr, b.rt_term_incr)  rt_term_incr," +
@@ -43,6 +43,7 @@
             "       (select  code_desc  from ln_odsb_code_desc where code_type_id='053' and code_id = c.ln_typ) as ln_typ" +
             "  from ln_archive_info a, ln_loanapply b, ln_promotioncustomers c, ln_archive_flow d " +
             "  where 1 = 1" +
+            "   and d.isclosed = '0' " +
             "   and d.flowsn = a.flowsn" +
             "   and a.loanid = b.loanid(+)" +
             "   and a.loanid = c.loanid(+)" +
@@ -52,6 +53,7 @@
 
     dbGrid.setfieldSQL(infoSql);
 
+    dbGrid.setField("PKID", "center", "5", "pkid", "false", "0");
     dbGrid.setField("操作人员", "center", "5", "opername", "true", "0");
     dbGrid.setField("岗位名称", "center", "5", "roledesc", "true", "0");
     dbGrid.setField("交接日期", "center", "5", "operdate", "true", "0");
@@ -59,7 +61,8 @@
     dbGrid.setField("处理状态", "dropdown", "5", "flowstat", "true", "ARCHIVEFLOW");
     dbGrid.setField("操作说明", "center", "10", "remark", "true", "0");
 
-    dbGrid.setField("业务流水号", "center", "5", "keycode", "false", "-1");
+    //dbGrid.setField("业务流水号", "center", "5", "keycode", "false", "-1");
+    dbGrid.setField("业务流水号", "center", "8", "keycode", "true", "0");
     dbGrid.setField("借款人", "center", "5", "cust_name", "true", "0");
     dbGrid.setField("贷款金额", "money", "5", "rt_orig_loan_amt", "true", "0");
     dbGrid.setField("贷款期限", "center", "5", "rt_term_incr", "false", "0");
@@ -72,7 +75,7 @@
     dbGrid.setWhereStr(" and d.operid ='" +  omgr.getOperator().getOperid()   +"'  order by d.operdate desc,d.opertime desc ");
     dbGrid.setpagesize(30);
     dbGrid.setdataPilotID("datapilot");
-    dbGrid.setbuttons("导出Excel=expExcel,moveFirst,prevPage,nextPage,moveLast");
+    dbGrid.setbuttons("终止处理=closeRecord,导出Excel=expExcel,moveFirst,prevPage,nextPage,moveLast");
 
 
 %>
@@ -89,7 +92,7 @@
     <script language="javascript" src="/js/xmlHttp.js"></script>
     <script language="javascript" src="/js/dbgrid.js"></script>
     <script language="javascript" src="/js/dbutil.js"></script>
-    <script language="javascript" src="flowOperQry.js"></script>
+    <script language="javascript" src="flowOperRemain.js"></script>
 
 </head>
 <body bgcolor="#ffffff" onLoad="body_resize()" onResize="body_resize();" class="Bodydefault">
@@ -103,6 +106,7 @@
             <input type="hidden" id="operid" value="<%=omgr.getOperator().getOperid()%>"/>
             <input type="hidden" id="deptid" value="<%=omgr.getOperator().getDeptid()%>"/>
             <input type="hidden" id="busiNode" name="busiNode" value=""/>
+            <input type="hidden" id="pkid" name="pkid" value=""/>
             <tr>
                 <td width="15%" nowrap="nowrap" class="lbl_right_padding">经营中心</td>
                 <td width="35%" class="data_input">
