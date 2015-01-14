@@ -303,7 +303,7 @@
 
                             + "  ,sum(case"
                             + "       when (" + criterion + ") then"
-                            + "        RATECALEVALUE*rt_orig_loan_amt"
+                            + "        (interate/5.6)*rt_orig_loan_amt"
                             + "       else"
                             + "        null"
                             + "     end) as rate" + step
